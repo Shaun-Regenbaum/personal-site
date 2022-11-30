@@ -1,9 +1,9 @@
-import NameArt from "~/components/NameArt";
+import NameArt from '~/components/NameArt';
 
 export default function Home() {
-  return (
-    <main class="text-center mx-auto text-gray-700 p-4">
-      <NameArt/>
-    </main>
-  );
+	return (
+		<main class='mx-auto text-gray-700 p-4'>
+			<h1>Hey I am Shaun Regenbaum</h1>
+		</main>
+	);
 }
