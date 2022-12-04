@@ -1,9 +1,15 @@
-import NameArt from '~/components/NameArt';
-
+import Nav from '../components/Nav';
 export default function Home() {
 	return (
-		<main class='mx-auto text-gray-700 p-4'>
-			<h1>Hey I am Shaun Regenbaum</h1>
-		</main>
+		<div>
+			<Nav />
+			<main class='mx-auto bg-gray-800 h-screen'>
+				<section class='pl-4 pt-4'>
+					<h1 class='font-pixel body-font text-white text-5xl'>
+						I am Shaun Regenbaum
+					</h1>
+				</section>
+			</main>
+		</div>
 	);
 }
