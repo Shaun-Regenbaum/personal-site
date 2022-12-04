@@ -6,3 +6,7 @@
 	font-family: 'pixel';
 	src: url('/fonts/1982.ttf');
 }
+@font-face {
+	font-family: 'coolvetica';
+	src: url('/fonts/coolvetica.otf');
+}
