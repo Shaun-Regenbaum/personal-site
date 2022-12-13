@@ -1,31 +1,51 @@
-import { A } from "solid-start";
+import { A } from 'solid-start';
 
-export default function NotFound() {
-  return (
-    <main class="text-center mx-auto text-gray-700 p-4">
-      <h1 class="max-6-xs text-6xl text-sky-700 font-thin uppercase my-16">
-        Not Found
-      </h1>
-      <p class="mt-8">
-        Visit{" "}
-        <a
-          href="https://solidjs.com"
-          target="_blank"
-          class="text-sky-600 hover:underline"
-        >
-          solidjs.com
-        </a>{" "}
-        to learn how to build Solid apps.
-      </p>
-      <p class="my-4">
-        <A href="/" class="text-sky-600 hover:underline">
-          Home
-        </A>
-        {" - "}
-        <A href="/about" class="text-sky-600 hover:underline">
-          About Page
-        </A>
-      </p>
-    </main>
-  );
+export default function Error() {
+	return (
+		<div class='bg-black h-screen w-full pl-12 pr-4 pt-12 font-coolvetica tracking-wide text-blue-50 text-3xl'>
+			<h1 class='mx-auto'>
+				<span class='font-pixel'>404</span> {'  '}
+				<span class='text-sm'>Page Not Found</span>
+			</h1>
+
+			<br></br>
+			<h2>What Is The Road To Wisdom?</h2>
+			<br></br>
+			<p>Well, Its Plain</p>
+			<p>And Simple To Express:</p>
+			<br></br>
+			<p>Err</p>
+			<p>
+				<span class='ml-[40px]'></span>And Err
+			</p>
+			<p>
+				<span class='ml-[40px]'></span>
+				<span class='ml-[40px]'></span>And Err Again.
+			</p>
+			<br></br>
+
+			<p>But Less</p>
+			<p>
+				<span class='ml-[40px]'></span>And Less
+			</p>
+			<p>
+				<span class='ml-[40px]'></span>
+				<span class='ml-[40px]'></span>And Less.
+			</p>
+			<br></br>
+			<p> _____ </p>
+			<p class='font-pixel'>Piet Hein</p>
+			<br></br>
+			<p>
+				{' '}
+				Go Back{' '}
+				<A
+					class='text-blue-500'
+					href='./'
+				>
+					Home
+				</A>
+			</p>
+		</div>
+	);
 }

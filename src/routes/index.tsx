@@ -1,6 +1,8 @@
+import Nav from '~/components/Nav';
 export default function Home() {
 	return (
 		<div>
+			<Nav></Nav>
 			<main class='mx-auto bg-gray-800 h-screen'>
 				<section class='pl-12 pt-12'>
 					<h1 class='font-coolvetica text-white text-5xl'>Welcome to all!</h1>
