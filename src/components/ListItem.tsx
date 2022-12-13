@@ -32,14 +32,12 @@ export default function ListItem(props: Post) {
 					<span class='font-pixel align-middle'>{tag + ': '}</span>
 					<span class='font-coolvetica text-2xl align-top'> {title}</span>
 				</A>
-				<p class='mt-2 text-sm text-gray-500'>
+				<p class='text-sm text-gray-500'>
 					{' '}
-					Made By: {author} | When? {'Yesterday'} |
+					{author} | {'Yesterday'} |
 					<Show when={domain !== null}>
-						{' '}
-						<span class='mt-1 max-w-2xl text-sm text-gray-500'>
-							{'(' + domain + ')'}
-						</span>
+						{' @ '}
+						<span class='mt-1 max-w-2xl text-sm text-gray-500'>{domain}</span>
 					</Show>
 				</p>
 			</div>
