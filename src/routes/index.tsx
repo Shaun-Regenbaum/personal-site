@@ -26,8 +26,20 @@ export default function Home() {
 				</section>
 				<section class='pl-12 pt-12'>
 					<h1>Experience:</h1>
+					<h3>Bioinformatics</h3>
+					<h3>Web Development</h3>
+					<h3>Machine Learning</h3>
+					<h3>Starting Companies</h3>
+					<h3>Embedded Systems</h3>
+
 					<h1>Research:</h1>
+					<h3>Hebrew University</h3>
+					<h3>Georgia Tech</h3>
+
 					<h1>Awards:</h1>
+					<h3>Zell Miller Scholarship</h3>
+					<h3>Towers Award</h3>
+					<h3>Breakthrough Challenege Finalist</h3>
 				</section>
 			</main>
 		</div>
