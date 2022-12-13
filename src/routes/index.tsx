@@ -1,4 +1,3 @@
-import ListItem from '~/components/ListItem';
 import Nav from '~/components/Nav';
 
 export default function Home() {
