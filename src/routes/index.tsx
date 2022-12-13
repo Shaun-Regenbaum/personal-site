@@ -1,4 +1,14 @@
+import ListItem from '~/components/ListItem';
 import Nav from '~/components/Nav';
+
+const SamplePost = {
+	tag: 'Poem',
+	author: 'Me',
+	title: 'Lindsay Walton',
+	url: new URL('https://app.rssapi.net/app?id=144'),
+	created_at: new Date(),
+};
+
 export default function Home() {
 	return (
 		<div>
@@ -10,6 +20,7 @@ export default function Home() {
 					<h2 class='font-coolvetica text-white text-5xl'>I am</h2>
 
 					<h2 class='font-pixel text-white text-3xl'>Shaun Regenbaum</h2>
+					<ListItem {...SamplePost}></ListItem>
 				</section>
 			</main>
 		</div>
