@@ -5,7 +5,7 @@ export default function Home() {
 	return (
 		<div>
 			<Nav startIndex={1}></Nav>
-			<main class='mx-auto bg-gray-800 h-screen text-white'>
+			<main class='mx-auto h- bg-gray-800 h-full text-white'>
 				<section class='pl-12 pt-12'>
 					<h1 class='font-coolvetica text-white text-3xl sm:text-5xl'>I am</h1>
 					<br></br>
