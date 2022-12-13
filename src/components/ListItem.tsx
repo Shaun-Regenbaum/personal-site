@@ -29,13 +29,12 @@ export default function ListItem(props: Post) {
 					href={props.url.href}
 					class='text-lg leading-6 font-medium'
 				>
-					<span class='font-pixel'>{tag + ': '}</span>
-
-					{title}
+					<span class='font-pixel align-middle'>{tag + ': '}</span>
+					<span class='font-coolvetica text-2xl align-top'> {title}</span>
 				</A>
 				<p class='mt-2 text-sm text-gray-500'>
 					{' '}
-					Written By {author} {'Yesterday'}{' '}
+					Made By: {author} | When? {'Yesterday'} |
 					<Show when={domain !== null}>
 						{' '}
 						<span class='mt-1 max-w-2xl text-sm text-gray-500'>

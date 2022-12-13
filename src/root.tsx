@@ -12,6 +12,7 @@ import {
 	Scripts,
 	Title,
 } from 'solid-start';
+import Nav from './components/Nav';
 import './root.css';
 
 export default function Root() {

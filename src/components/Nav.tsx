@@ -1,12 +1,13 @@
 import { createSignal, For } from 'solid-js';
+import { A, redirect } from 'solid-start';
 
 interface MenuItem {
 	name: string;
 	href: string;
 	index: number;
 }
-export default function Nav() {
-	const [selected, setSelected] = createSignal(1);
+export default function Nav(props: { startIndex: number }) {
+	const [selected, setSelected] = createSignal(props.startIndex);
 	const MenuItems: MenuItem[] = [
 		{ name: 'About Me', href: '/', index: 1 },
 		{ name: 'Writings', href: '/writings', index: 2 },
@@ -55,13 +56,13 @@ export default function Nav() {
 							fallback={<div>Empty</div>}
 						>
 							{(item) => (
-								<a
+								<A
 									href={item.href}
 									class={selected() === item.index ? trueCss : falseCss}
 									onClick={() => setSelected(item.index)}
 								>
 									{item.name}
-								</a>
+								</A>
 							)}
 						</For>
 					</nav>
