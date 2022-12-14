@@ -56,13 +56,13 @@ export default function Nav(props: { startIndex: number }) {
 							fallback={<div>Empty</div>}
 						>
 							{(item) => (
-								<a
+								<A
 									href={item.href}
 									class={selected() === item.index ? trueCss : falseCss}
 									onClick={() => setSelected(item.index)}
 								>
 									{item.name}
-								</a>
+								</A>
 							)}
 						</For>
 					</nav>
