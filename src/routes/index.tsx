@@ -13,8 +13,15 @@ export default function Home() {
 					</h2>
 				</section>
 				<section class='pl-16 sm:pl-20 pt-12'>
-					<h3>I am an engineer.</h3>
-					<h3>I am a researcher.</h3>
+					<h3>
+						I am an <span class='text-3xl'>eng</span>
+						<span class='font-steamy text-5xl'>i</span>
+						<span class='text-3xl'>nee</span>
+						<span class='font-steamy text-5xl'>r</span>.
+					</h3>
+					<h3>
+						I am a <span class='font-science text-3xl'>researcher</span>.
+					</h3>
 					<h3>
 						At the interface between mind-blowing science and commerical scale.
 					</h3>

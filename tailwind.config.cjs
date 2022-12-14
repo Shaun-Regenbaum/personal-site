@@ -6,6 +6,8 @@ module.exports = {
 			fontFamily: {
 				pixel: ['pixel'],
 				coolvetica: ['coolvetica'],
+				steamy: ['steamy'],
+				science: ['science'],
 			},
 		},
 	},
