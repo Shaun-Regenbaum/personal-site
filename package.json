@@ -18,6 +18,7 @@
 		"@solidjs/router": "^0.5.0",
 		"daf-renderer": "github:GT-Jewish-DH/daf-renderer",
 		"sanitize-html": "^2.8.0",
+		"solid-headless": "^0.13.0",
 		"solid-js": "^1.6.0",
 		"solid-start": "^0.2.0",
 		"solid-start-cloudflare-pages": "^0.2.7",

@@ -3,7 +3,7 @@ import Nav from '~/components/Nav';
 
 export default function Home() {
 	return (
-		<div>
+		<>
 			<Nav startIndex={1}></Nav>
 			<main class=' bg-gray-800 h-full text-white'>
 				<section class='pl-12 pt-12'>
@@ -114,26 +114,12 @@ export default function Home() {
 					</p>
 				</section>
 				<br></br>
-				<br></br>
-				<br></br>
 				<div class='flex flex-row justify-center items-center"'>
 					<p class=' pl-4 font-rainy text-2xl'>
 						This site still a work in Progress and will be updated later...
 					</p>
 				</div>
-				<br></br>
-				<br></br>
-				<br></br>
-				{/* <section class='pl-12 pt-12'>
-					<h1>Education:</h1>
-					<h3>Hebrew University</h3>
-					<h3>Georgia Tech</h3>
-					<h1>Awards:</h1>
-					<h3>Zell Miller Scholarship</h3>
-					<h3>Towers Award</h3>
-					<h3>Breakthrough Challenege Finalist</h3>
-				</section> */}
 			</main>
-		</div>
+		</>
 	);
 }
