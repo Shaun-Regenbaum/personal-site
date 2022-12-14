@@ -1,7 +1,7 @@
 import solid from 'solid-start/vite';
 import { defineConfig } from 'vite';
-import staticad from 'solid-start-static';
+import node from 'solid-start-node';
 
 export default defineConfig({
-	plugins: [solid({ adapter: staticad({}) })],
+	plugins: [solid({ adapter: node({}) })],
 });
