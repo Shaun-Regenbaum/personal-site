@@ -1,7 +1,7 @@
 import solid from 'solid-start/vite';
 import { defineConfig } from 'vite';
-import cloudflare from 'solid-start-cloudflare-pages';
+import staticad from 'solid-start-static';
 
 export default defineConfig({
-	plugins: [solid()],
+	plugins: [solid({ adapter: staticad })],
 });
