@@ -14,8 +14,12 @@ export default function Writings() {
 		<div>
 			<Nav startIndex={2}></Nav>
 			<br></br>
+			<div class='flex flex-row justify-center items-center"'>
+				<p class=' pl-4 font-rainy text-2xl'>
+					This page is still a work in progress and will be updated later...
+				</p>
+			</div>
 
-			<ListItem {...SamplePost}></ListItem>
 			<ListItem {...SamplePost}></ListItem>
 			<ListItem {...SamplePost}></ListItem>
 		</div>

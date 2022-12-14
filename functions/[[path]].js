@@ -2,81 +2,103 @@ var manifest = {
 	"/*404": [
 	{
 		type: "script",
-		href: "/assets/_...404_.81989fa4.js"
+		href: "/assets/_...404_.49358b59.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.f9d6c81f.js"
+		href: "/assets/entry-client.ba45d5f3.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.5563021b.css"
+		href: "/assets/entry-client.50ebf5d5.css"
 	}
 ],
 	"/about": [
 	{
 		type: "script",
-		href: "/assets/about.4d30e918.js"
+		href: "/assets/about.704706b1.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.f9d6c81f.js"
+		href: "/assets/entry-client.ba45d5f3.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.5563021b.css"
+		href: "/assets/entry-client.50ebf5d5.css"
 	}
 ],
 	"/err": [
 	{
 		type: "script",
-		href: "/assets/err.bf0f9c74.js"
+		href: "/assets/err.d9a0d520.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.f9d6c81f.js"
+		href: "/assets/entry-client.ba45d5f3.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.5563021b.css"
+		href: "/assets/entry-client.50ebf5d5.css"
 	}
 ],
 	"/": [
 	{
 		type: "script",
-		href: "/assets/index.384ba026.js"
+		href: "/assets/index.a1ce2dee.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.f9d6c81f.js"
+		href: "/assets/entry-client.ba45d5f3.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.5563021b.css"
+		href: "/assets/entry-client.50ebf5d5.css"
+	},
+	{
+		type: "script",
+		href: "/assets/Nav.e95a9e2d.js"
 	}
 ],
 	"/td": [
 	{
 		type: "script",
-		href: "/assets/td.e68f0a6e.js"
+		href: "/assets/td.c996fce5.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.f9d6c81f.js"
+		href: "/assets/entry-client.ba45d5f3.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.5563021b.css"
+		href: "/assets/entry-client.50ebf5d5.css"
+	}
+],
+	"/writings": [
+	{
+		type: "script",
+		href: "/assets/writings.008ed7ab.js"
+	},
+	{
+		type: "script",
+		href: "/assets/entry-client.ba45d5f3.js"
+	},
+	{
+		type: "style",
+		href: "/assets/entry-client.50ebf5d5.css"
+	},
+	{
+		type: "script",
+		href: "/assets/Nav.e95a9e2d.js"
 	}
 ],
 	"entry-client": [
 	{
 		type: "script",
-		href: "/assets/entry-client.f9d6c81f.js"
+		href: "/assets/entry-client.ba45d5f3.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.5563021b.css"
+		href: "/assets/entry-client.50ebf5d5.css"
 	}
 ],
 	"index.html": [
@@ -310,6 +332,20 @@ function splitProps(props, ...keys) {
     return clone;
   };
   return keys.map(split).concat(split(Object.keys(descriptors)));
+}
+function simpleMap(props, wrap) {
+  const list = props.each || [],
+        len = list.length,
+        fn = props.children;
+  if (len) {
+    let mapped = Array(len);
+    for (let i = 0; i < len; i++) mapped[i] = wrap(fn, list[i], i);
+    return mapped;
+  }
+  return props.fallback;
+}
+function For(props) {
+  return simpleMap(props, (fn, item, i) => fn(item, () => i));
 }
 function Show(props) {
   let c;
@@ -1986,7 +2022,7 @@ const ServerContext = createContext({});
 const A = A$1;
 const Routes = Routes$1;
 
-const _tmpl$$7 = ["<div", " style=\"", "\"><div style=\"", "\"><p style=\"", "\" id=\"error-message\">", "</p><button id=\"reset-errors\" style=\"", "\">Clear errors and retry</button><pre style=\"", "\">", "</pre></div></div>"];
+const _tmpl$$b = ["<div", " style=\"", "\"><div style=\"", "\"><p style=\"", "\" id=\"error-message\">", "</p><button id=\"reset-errors\" style=\"", "\">Clear errors and retry</button><pre style=\"", "\">", "</pre></div></div>"];
 function ErrorBoundary(props) {
   return createComponent(ErrorBoundary$1, {
     fallback: (e, reset) => {
@@ -2010,7 +2046,7 @@ function ErrorBoundary(props) {
   });
 }
 function ErrorMessage(props) {
-  return ssr(_tmpl$$7, ssrHydrationKey(), "padding:" + "16px", "background-color:" + "rgba(252, 165, 165)" + (";color:" + "rgb(153, 27, 27)") + (";border-radius:" + "5px") + (";overflow:" + "scroll") + (";padding:" + "16px") + (";margin-bottom:" + "8px"), "font-weight:" + "bold", escape(props.error.message), "color:" + "rgba(252, 165, 165)" + (";background-color:" + "rgb(153, 27, 27)") + (";border-radius:" + "5px") + (";padding:" + "4px 8px"), "margin-top:" + "8px" + (";width:" + "100%"), escape(props.error.stack));
+  return ssr(_tmpl$$b, ssrHydrationKey(), "padding:" + "16px", "background-color:" + "rgba(252, 165, 165)" + (";color:" + "rgb(153, 27, 27)") + (";border-radius:" + "5px") + (";overflow:" + "scroll") + (";padding:" + "16px") + (";margin-bottom:" + "8px"), "font-weight:" + "bold", escape(props.error.message), "color:" + "rgba(252, 165, 165)" + (";background-color:" + "rgb(153, 27, 27)") + (";border-radius:" + "5px") + (";padding:" + "4px 8px"), "margin-top:" + "8px" + (";width:" + "100%"), escape(props.error.stack));
 }
 
 // @ts-expect-error
@@ -2034,11 +2070,15 @@ const routeLayouts = {
   "/td": {
     "id": "/td",
     "layouts": []
+  },
+  "/writings": {
+    "id": "/writings",
+    "layouts": []
   }
 };
 
-const _tmpl$$6 = ["<link", " rel=\"stylesheet\"", ">"],
-  _tmpl$2 = ["<link", " rel=\"modulepreload\"", ">"];
+const _tmpl$$a = ["<link", " rel=\"stylesheet\"", ">"],
+  _tmpl$2$2 = ["<link", " rel=\"modulepreload\"", ">"];
 function flattenIslands(match, manifest) {
   let result = [...match];
   match.forEach(m => {
@@ -2067,7 +2107,7 @@ function getAssetsFromManifest(manifest, routerContext) {
   match.push(...(manifest["entry-client"] || []));
   match = flattenIslands(match, manifest);
   const links = match.reduce((r, src) => {
-    r[src.href] = src.type === "style" ? ssr(_tmpl$$6, ssrHydrationKey(), ssrAttribute("href", escape(src.href, true), false)) : src.type === "script" ? ssr(_tmpl$2, ssrHydrationKey(), ssrAttribute("href", escape(src.href, true), false)) : undefined;
+    r[src.href] = src.type === "style" ? ssr(_tmpl$$a, ssrHydrationKey(), ssrAttribute("href", escape(src.href, true), false)) : src.type === "script" ? ssr(_tmpl$2$2, ssrHydrationKey(), ssrAttribute("href", escape(src.href, true), false)) : undefined;
     return r;
   }, {});
   return Object.values(links);
@@ -2090,14 +2130,14 @@ function Meta() {
   return null;
 }
 
-const _tmpl$4 = ["<script", " type=\"module\" async", "></script>"];
+const _tmpl$4$2 = ["<script", " type=\"module\" async", "></script>"];
 const isDev = "production" === "development";
 const isIslands = false;
 function Scripts() {
   const context = useContext(ServerContext);
   return [createComponent(HydrationScript, {}), isIslands , createComponent(NoHydration, {
     get children() {
-      return (ssr(_tmpl$4, ssrHydrationKey(), ssrAttribute("src", escape(context.env.manifest["entry-client"][0].href, true), false)) );
+      return (ssr(_tmpl$4$2, ssrHydrationKey(), ssrAttribute("src", escape(context.env.manifest["entry-client"][0].href, true), false)) );
     }
   }), isDev ];
 }
@@ -2118,28 +2158,24 @@ function Body(props) {
   }
 }
 
-const _tmpl$$5 = ["<main", " class=\"text-center mx-auto text-gray-700 p-4\"><h1 class=\"max-6-xs text-6xl text-sky-700 font-thin uppercase my-16\">Not Found</h1><p class=\"mt-8\">Visit <a href=\"https://solidjs.com\" target=\"_blank\" class=\"text-sky-600 hover:underline\">solidjs.com</a> to learn how to build Solid apps.</p><p class=\"my-4\"><!--#-->", "<!--/--> - <!--#-->", "<!--/--></p></main>"];
-function NotFound() {
-  return ssr(_tmpl$$5, ssrHydrationKey(), escape(createComponent(A, {
-    href: "/",
-    "class": "text-sky-600 hover:underline",
+const _tmpl$$9 = ["<div", " class=\"bg-black h-screen w-full pl-12 pr-4 pt-12 font-coolvetica tracking-wide text-blue-50 text-3xl\"><h1 class=\"mx-auto\"><span class=\"font-pixel\">404</span>   <span class=\"text-sm\">Page Not Found</span></h1><br><h2>What Is The Road To Wisdom?</h2><br><p>Well, Its Plain</p><p>And Simple To Express:</p><br><p>Err</p><p><span class=\"ml-[40px]\"></span>And Err</p><p><span class=\"ml-[40px]\"></span><span class=\"ml-[40px]\"></span>And Err Again.</p><br><p>But Less</p><p><span class=\"ml-[40px]\"></span>And Less</p><p><span class=\"ml-[40px]\"></span><span class=\"ml-[40px]\"></span>And Less.</p><br><p> _____ </p><p class=\"font-pixel\">Piet Hein</p><br><p> Go Back <!--#-->", "<!--/--></p></div>"];
+function Error$1() {
+  return ssr(_tmpl$$9, ssrHydrationKey(), escape(createComponent(A, {
+    "class": 'text-blue-500',
+    href: './',
     children: "Home"
-  })), escape(createComponent(A, {
-    href: "/about",
-    "class": "text-sky-600 hover:underline",
-    children: "About Page"
   })));
 }
 
-const _tmpl$$4 = ["<button", " class=\"w-[200px] rounded-full bg-gray-100 border-2 border-gray-300 focus:border-gray-400 active:border-gray-400 px-[2rem] py-[1rem]\">Clicks: <!--#-->", "<!--/--></button>"];
+const _tmpl$$8 = ["<button", " class=\"w-[200px] rounded-full bg-gray-100 border-2 border-gray-300 focus:border-gray-400 active:border-gray-400 px-[2rem] py-[1rem]\">Clicks: <!--#-->", "<!--/--></button>"];
 function Counter() {
   const [count, setCount] = createSignal(0);
-  return ssr(_tmpl$$4, ssrHydrationKey(), escape(count()));
+  return ssr(_tmpl$$8, ssrHydrationKey(), escape(count()));
 }
 
-const _tmpl$$3 = ["<main", " class=\"text-center mx-auto text-gray-700 p-4\"><h1 class=\"max-6-xs text-6xl text-sky-700 font-thin uppercase my-16\">About Page</h1><!--#-->", "<!--/--><p class=\"mt-8\">Visit <!--#-->", "<!--/--> to learn how to build Solid apps.</p><p class=\"my-4\"><!--#-->", "<!--/--> - <span>About Page</span></p></main>"];
+const _tmpl$$7 = ["<main", " class=\"text-center mx-auto text-gray-700 p-4\"><h1 class=\"max-6-xs text-6xl text-sky-700 font-thin uppercase my-16\">About Page</h1><!--#-->", "<!--/--><p class=\"mt-8\">Visit <!--#-->", "<!--/--> to learn how to build Solid apps.</p><p class=\"my-4\"><!--#-->", "<!--/--> - <span>About Page</span></p></main>"];
 function About() {
-  return ssr(_tmpl$$3, ssrHydrationKey(), escape(createComponent(Counter, {})), escape(createComponent(A, {
+  return ssr(_tmpl$$7, ssrHydrationKey(), escape(createComponent(Counter, {})), escape(createComponent(A, {
     href: "https://solidjs.com",
     target: "_blank",
     "class": "text-sky-600 hover:underline",
@@ -2151,24 +2187,110 @@ function About() {
   })));
 }
 
-const _tmpl$$2 = ["<div", " class=\"bg-black h-screen w-full pl-12 pr-4 pt-12 font-coolvetica tracking-wide text-blue-50 text-3xl\"><h1>What Is The Road To Wisdom?</h1><br><p>Well, Its Plain</p><p>And Simple To Express:</p><br><p>Err</p><p><span class=\"ml-[40px]\"></span>And Err</p><p><span class=\"ml-[40px]\"></span><span class=\"ml-[40px]\"></span>And Err Again.</p><br><p>But Less</p><p><span class=\"ml-[40px]\"></span>And Less</p><p><span class=\"ml-[40px]\"></span><span class=\"ml-[40px]\"></span>And Less.</p><br><p> _____ </p><p class=\"font-pixel\">Piet Hein</p></div>"];
+const _tmpl$$6 = ["<div", " class=\"bg-black h-screen w-full pl-12 pr-4 pt-12 font-coolvetica tracking-wide text-blue-50 text-3xl\"><h1>What Is The Road To Wisdom?</h1><br><p>Well, Its Plain</p><p>And Simple To Express:</p><br><p>Err</p><p><span class=\"ml-[40px]\"></span>And Err</p><p><span class=\"ml-[40px]\"></span><span class=\"ml-[40px]\"></span>And Err Again.</p><br><p>But Less</p><p><span class=\"ml-[40px]\"></span>And Less</p><p><span class=\"ml-[40px]\"></span><span class=\"ml-[40px]\"></span>And Less.</p><br><p> _____ </p><p class=\"font-pixel\">Piet Hein</p></div>"];
 function Err() {
+  return ssr(_tmpl$$6, ssrHydrationKey());
+}
+
+const _tmpl$$5 = ["<svg", " viewBox=\"0 0 127 51\" width=\"48px\" height=\"48px\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"inline align-middle\"><path d=\"M51.2059 0.159058L73.7614 0.159159C80.2702 0.15919 85.5466 5.43565 85.5466 11.9445V40.7435H76.181V13.0603C76.181 11.1076 74.598 9.52469 72.6454 9.52469H51.2059V0.159058Z\" fill=\"#81D2FF\"></path><path d=\"M41.8391 9.52478H51.2047V37.208C51.2047 39.1606 52.7877 40.7436 54.7403 40.7436H76.1798V50.1092H53.6244C47.1156 50.1092 41.8391 44.8328 41.8391 38.3239V9.52478Z\" fill=\"#FF7346\"></path><path d=\"M36.6821 26.9787H27.2885V11.7292L0 27.9332V16.9892L26.9262 0.1604H36.6821V26.9787Z\" fill=\"#6C42C5\"></path><path d=\"M0.000244141 40.6078V30.5541L24.8214 30.5541C31.3303 30.5541 36.6068 35.8305 36.6068 42.3394V50.0658H27.2411V42.9648C27.2411 41.6631 26.1858 40.6078 24.8841 40.6078H0.000244141Z\" fill=\"#FFC700\"></path><path d=\"M90.3162 0.159058H112.647C116.338 0.159058 119.909 1.60258 122.579 4.15119C125.386 6.83096 126.998 10.5655 126.998 14.4464C126.998 20.4251 123.254 25.7635 117.633 27.7993L90.3162 37.6735L90.3158 26.707L114.207 18.3388C116.025 17.702 117.242 15.9857 117.242 14.0592C117.242 11.5549 115.212 9.52469 112.708 9.52469H90.3162V0.159058Z\" fill=\"#A8A5F5\"></path><path d=\"M127 40.7433H90.3179V50.1089H127V40.7433Z\" fill=\"#6C42C5\"></path></svg>"];
+function Logo() {
+  return ssr(_tmpl$$5, ssrHydrationKey());
+}
+
+const _tmpl$$4 = ["<div", " class=\"font-pixel bg-gray-800 text-white\"><div class=\"sm:hidden\"><label for=\"tabs\" class=\"sr-only\">Select a tab</label><select id=\"tabs\" name=\"tabs\" class=\"block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm\">", "</select></div><div class=\"hidden sm:block\"><div class=\"border-b border-gray-200\"><nav class=\"-mb-px ml-4 flex space-x-8\" aria-label=\"Tabs\">", "</nav></div></div></div>"],
+  _tmpl$2$1 = ["<div", ">Empty</div>"],
+  _tmpl$3$1 = ["<option", " class=\"font-coolvetica\">", "</option>"],
+  _tmpl$4$1 = ["<a", ">", "</a>"];
+function Nav(props) {
+  const [selected, setSelected] = createSignal(props.startIndex);
+  const MenuItems = [{
+    name: 'About Me',
+    href: '/',
+    index: 1
+  }, {
+    name: 'Writings',
+    href: '/writings',
+    index: 2
+  }, {
+    name: 'Projects',
+    href: '/projects',
+    index: 3
+  }];
+  const falseCss = 'text-md border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium';
+  const trueCss = 'text-md border-white text-black-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium ';
+  return ssr(_tmpl$$4, ssrHydrationKey(), escape(createComponent(For, {
+    each: MenuItems,
+    get fallback() {
+      return ssr(_tmpl$2$1, ssrHydrationKey());
+    },
+    children: item => ssr(_tmpl$3$1, ssrHydrationKey(), escape(item.name))
+  })), escape(createComponent(For, {
+    each: MenuItems,
+    get fallback() {
+      return ssr(_tmpl$2$1, ssrHydrationKey());
+    },
+    children: item => ssr(_tmpl$4$1, ssrHydrationKey() + ssrAttribute("href", escape(item.href, true), false) + ssrAttribute("class", selected() === item.index ? escape(trueCss, true) : escape(falseCss, true), false), escape(item.name))
+  })));
+}
+
+const _tmpl$$3 = ["<div", "><!--#-->", "<!--/--><main class=\" bg-gray-800 h-full text-white\"><section class=\"pl-12 pt-12\"><h1 class=\"font-coolvetica text-white text-3xl sm:text-5xl\">I am</h1><br><h2 class=\"font-pixel text-white text-xl sm:text-3xl\">Shaun Regenbaum</h2></section><section class=\"pl-16 sm:pl-20 pt-12\"><h3>My family is from Johanessburg, South Africa.<span class=\"text-3xl\"> \uD83C\uDDFF\uD83C\uDDE6</span></h3><h3>I grew up in Atlanta, Georgia.<span class=\"text-3xl\"> \uD83C\uDDFA\uD83C\uDDF8</span></h3><h3>I now live in Jerusalem, Israel.<span class=\"text-3xl\"> \uD83C\uDDEE\uD83C\uDDF1</span></h3></section><section class=\"pl-20 sm:pl-28 pt-12\"><h3>I am an <span class=\"font-threeam text-3xl\">engineer.</span></h3><h3>And a <span class=\"font-science text-3xl\">researcher.</span></h3><br></section><section class=\"pl-12 pt-12\"><p class=\"align-bottom\">Paid for <span class=\"font-threeam\">College</span> by selling my first <span class=\"font-threeam\">Business</span> in high school.</p><p>Co-founded the first funded student-led lab at <span class=\"font-science text-lg\">Georgia Tech</span>,<div class=\"pl-2\"><span class=\"font-aorell\"><div>The</div><div class=\"pl-4\">Talmud</div><div class=\"pl-12\">Lab, <span class=\"font-sans align-bottom\">with my friend Dan Jutan.</span></div></span></div></p><br><p>Published my first paper in <span class=\"font-science text-lg\">Science</span>.</p><p>Worked in Nahmias Lab at HU (<span class=\"font-threeam\">Cultivated Meat</span> and <span class=\"font-threeam\">Tissue-on-a-chip</span>).</p><p>Worked on population genomics at <span class=\"font-science text-lg\">Georgia Tech</span>.</p> <p>Founded <span><!--#-->", "<!--/--> </span>, a profitable VC-Backed company at the end of college, still in operation.</p></section><section class=\"pl-12 pt-12\"><p><span class=\"font-steamy text-3xl\">I</span> Like STM <span class=\"font-jump text-xl\">></span> Arduino</p><p><span class=\"font-jump text-3xl\">I</span> Like Typescript <span class=\"font-jump text-xl\">></span> Javascript</p><p><span class=\"font-jump text-3xl\">I</span> Like Julia <span class=\"font-jump text-xl\">></span> R</p><p><span class=\"font-jump text-3xl\">I</span> Like Large Language Models</p><p><span class=\"font-jump text-3xl\">I</span> Like VSCode</p><p><span class=\"font-jump text-3xl\">I</span> Like Talmud</p><p><span class=\"font-jump text-3xl\">I</span> Don't like driving (waiting for autonomous cars)</p><p><span class=\"font-jump text-3xl\">I</span> Don't like disease (working on eliminating it)</p><p><span class=\"font-jump text-3xl\">I</span> Don't like hoarding wealth</p></section><br><br><br><div class=\"flex flex-row justify-center items-center&quot;\"><p class=\" pl-4 font-rainy text-2xl\">This site still a work in Progress and will be updated later...</p></div><br><br><br></main></div>"];
+function Home() {
+  return ssr(_tmpl$$3, ssrHydrationKey(), escape(createComponent(Nav, {
+    startIndex: 1
+  })), escape(createComponent(Logo, {})));
+}
+
+const _tmpl$$2 = ["<main", " class=\"mx-auto text-gray-700 p-4\"><h1>Hey I am Shaun Regenbaum</h1></main>"];
+function TD() {
   return ssr(_tmpl$$2, ssrHydrationKey());
 }
 
-const _tmpl$$1 = ["<div", "><main class=\"mx-auto bg-gray-800 h-screen\"><section class=\"pl-12 pt-12\"><h1 class=\"font-coolvetica text-white text-5xl\">Welcome to all!</h1><br><h2 class=\"font-coolvetica text-white text-5xl\">I am</h2><h2 class=\"font-pixel text-white text-3xl\">Shaun Regenbaum</h2></section></main></div>"];
-function Home() {
-  return ssr(_tmpl$$1, ssrHydrationKey());
+const _tmpl$$1 = ["<span", " class=\"font-pixel align-middle\">", "</span>"],
+  _tmpl$2 = ["<span", " class=\"font-coolvetica text-2xl align-top\"> ", "</span>"],
+  _tmpl$3 = ["<span", " class=\"mt-1 max-w-2xl text-sm text-gray-500\">", "</span>"],
+  _tmpl$4 = ["<div", " class=\"", "\"><div class=\"px-4 py-5 sm:p-6\"><!--#-->", "<!--/--><p class=\"text-sm text-gray-500\"> <!--#-->", "<!--/--> | Yesterday |<!--#-->", "<!--/--></p></div></div>"];
+function ListItem(props) {
+  // reducing the url to the domain name
+  const tag = props.tag;
+  const author = props.author;
+  const domain = props.url.hostname.replace(/^www\./, '');
+  const title = props.title;
+  // const [myDate, setMyDate] = createDate(props.created_at);
+  // const [timeago] = createTimeAgo(myDate);
+
+  return ssr(_tmpl$4, ssrHydrationKey(), `overflow-hidden rounded-lg bg-white shadow ${escape(props.extra_stlying, true)}`, escape(createComponent(A, {
+    get href() {
+      return props.url.href;
+    },
+    "class": 'text-lg leading-6 font-medium',
+    get children() {
+      return [ssr(_tmpl$$1, ssrHydrationKey(), escape(tag) + ': '), ssr(_tmpl$2, ssrHydrationKey(), escape(title))];
+    }
+  })), escape(author), escape(createComponent(Show, {
+    when: domain !== null,
+    get children() {
+      return [' @ ', ssr(_tmpl$3, ssrHydrationKey(), escape(domain))];
+    }
+  })));
 }
 
-const _tmpl$ = ["<main", " class=\"mx-auto text-gray-700 p-4\"><h1>Hey I am Shaun Regenbaum</h1></main>"];
-function TD() {
-  return ssr(_tmpl$, ssrHydrationKey());
+const _tmpl$ = ["<div", "><!--#-->", "<!--/--><br><div class=\"flex flex-row justify-center items-center&quot;\"><p class=\" pl-4 font-rainy text-2xl\">This page is still a work in progress and will be updated later...</p></div><!--#-->", "<!--/--><!--#-->", "<!--/--></div>"];
+const SamplePost = {
+  tag: 'Poem',
+  author: 'Me',
+  title: 'Lindsay Walton',
+  url: new URL('https://app.rssapi.net/app?id=144'),
+  created_at: new Date()
+};
+function Writings() {
+  return ssr(_tmpl$, ssrHydrationKey(), escape(createComponent(Nav, {
+    startIndex: 2
+  })), escape(createComponent(ListItem, SamplePost)), escape(createComponent(ListItem, SamplePost)));
 }
 
 /// <reference path="../server/types.tsx" />
 const fileRoutes = [{
-  component: NotFound,
+  component: Error$1,
   path: "/*404"
 }, {
   component: About,
@@ -2182,6 +2304,9 @@ const fileRoutes = [{
 }, {
   component: TD,
   path: "/td"
+}, {
+  component: Writings,
+  path: "/writings"
 }];
 
 /**
@@ -2248,6 +2373,10 @@ const api = [
   {
     GET: "skip",
     path: "/td"
+  },
+  {
+    GET: "skip",
+    path: "/writings"
   }
 ];
 function routeToMatchRoute(route) {

@@ -1,10 +1,11 @@
+import Logo from '~/components/Logo';
 import Nav from '~/components/Nav';
 
 export default function Home() {
 	return (
 		<div>
 			<Nav startIndex={1}></Nav>
-			<main class='mx-auto h- bg-gray-800 h-full text-white'>
+			<main class=' bg-gray-800 h-full text-white'>
 				<section class='pl-12 pt-12'>
 					<h1 class='font-coolvetica text-white text-3xl sm:text-5xl'>I am</h1>
 					<br></br>
@@ -24,7 +25,7 @@ export default function Home() {
 						I now live in Jerusalem, Israel.<span class='text-3xl'> 🇮🇱</span>
 					</h3>
 				</section>
-				<section class='pl-16 sm:pl-20 pt-12'>
+				<section class='pl-20 sm:pl-28 pt-12'>
 					<h3>
 						I am an <span class='font-threeam text-3xl'>engineer.</span>
 					</h3>
@@ -54,35 +55,76 @@ export default function Home() {
 							</span>
 						</div>
 					</p>
+					<br></br>
 					<p>
 						Published my first paper in{' '}
 						<span class='font-science text-lg'>Science</span>.
 					</p>
 					<p>
-						Worked in Nahmias Lab at HU (cultivated meat and tissue-on-a-chip
-						technologies).
+						Worked in Nahmias Lab at HU (
+						<span class='font-threeam'>Cultivated Meat</span> and{' '}
+						<span class='font-threeam'>Tissue-on-a-chip</span>).
 					</p>
-					<p>Worked on population genomics at Georgia Tech.</p>{' '}
 					<p>
-						Founded 402, a VC-Backed company at the end of college, still in
-						business.
+						Worked on population genomics at{' '}
+						<span class='font-science text-lg'>Georgia Tech</span>.
+					</p>{' '}
+					<p>
+						Founded{' '}
+						<span>
+							<Logo></Logo>{' '}
+						</span>
+						, a profitable VC-Backed company at the end of college, still in
+						operation.
 					</p>
 				</section>
 				<section class='pl-12 pt-12'>
 					<p>
-						{' '}
-						Like <span class='font-steamy text-xl'>S T M</span> {'>'} Arduino
+						<span class='font-steamy text-3xl'>I</span> Like STM{' '}
+						<span class='font-jump text-xl'>{'>'}</span> Arduino
 					</p>
-					<p>Like Julia {'>'} R</p>
-					<p>Like Typescript {'>'} Javascript</p>
-					<p>Like GPT3</p>
-					<p>Like VSCode</p>
-					<p>Like Talmud</p>
-					<p>Don't like driving (waiting for autonomous cars)</p>
-					<p>Don't like disease (working on eliminating it)</p>
-					<p>Don't like hoarding wealth</p>
+					<p>
+						<span class='font-jump text-3xl'>I</span> Like Typescript{' '}
+						<span class='font-jump text-xl'>{'>'}</span> Javascript
+					</p>
+					<p>
+						<span class='font-jump text-3xl'>I</span> Like Julia{' '}
+						<span class='font-jump text-xl'>{'>'}</span> R
+					</p>
+
+					<p>
+						<span class='font-jump text-3xl'>I</span> Like Large Language Models
+					</p>
+					<p>
+						<span class='font-jump text-3xl'>I</span> Like VSCode
+					</p>
+					<p>
+						<span class='font-jump text-3xl'>I</span> Like Talmud
+					</p>
+					<p>
+						<span class='font-jump text-3xl'>I</span> Don't like driving
+						(waiting for autonomous cars)
+					</p>
+					<p>
+						<span class='font-jump text-3xl'>I</span> Don't like disease
+						(working on eliminating it)
+					</p>
+					<p>
+						<span class='font-jump text-3xl'>I</span> Don't like hoarding wealth
+					</p>
 				</section>
-				<section class='pl-12 pt-12'>
+				<br></br>
+				<br></br>
+				<br></br>
+				<div class='flex flex-row justify-center items-center"'>
+					<p class=' pl-4 font-rainy text-2xl'>
+						This site still a work in Progress and will be updated later...
+					</p>
+				</div>
+				<br></br>
+				<br></br>
+				<br></br>
+				{/* <section class='pl-12 pt-12'>
 					<h1>Education:</h1>
 					<h3>Hebrew University</h3>
 					<h3>Georgia Tech</h3>
@@ -90,7 +132,7 @@ export default function Home() {
 					<h3>Zell Miller Scholarship</h3>
 					<h3>Towers Award</h3>
 					<h3>Breakthrough Challenege Finalist</h3>
-				</section>
+				</section> */}
 			</main>
 		</div>
 	);

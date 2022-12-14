@@ -15,12 +15,12 @@ export default function Nav(props: { startIndex: number }) {
 	];
 
 	const falseCss =
-		'font-coolvetica text-md border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium';
+		'text-md border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium';
 	const trueCss =
-		'font-coolvetica text-md border-indigo-500 text-black-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium ';
+		'text-md border-white text-black-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium ';
 
 	return (
-		<div>
+		<div class='font-pixel bg-gray-800 text-white'>
 			<div class='sm:hidden'>
 				<label
 					for='tabs'
@@ -56,13 +56,13 @@ export default function Nav(props: { startIndex: number }) {
 							fallback={<div>Empty</div>}
 						>
 							{(item) => (
-								<A
+								<a
 									href={item.href}
 									class={selected() === item.index ? trueCss : falseCss}
 									onClick={() => setSelected(item.index)}
 								>
 									{item.name}
-								</A>
+								</a>
 							)}
 						</For>
 					</nav>
