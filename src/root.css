@@ -20,3 +20,21 @@
 	font-family: 'science';
 	src: url('/fonts/science.otf');
 }
+
+@font-face {
+	font-family: 'jump';
+	src: url('/fonts/jump.otf');
+}
+@font-face {
+	font-family: 'aorell';
+	src: url('/fonts/aorell.ttf');
+}
+@font-face {
+	font-family: 'threeam';
+	src: url('/fonts/threeam.otf');
+}
+
+@font-face {
+	font-family: 'rainy';
+	src: url('/fonts/rainy.ttf');
+}
