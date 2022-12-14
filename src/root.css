@@ -38,3 +38,17 @@
 	font-family: 'rainy';
 	src: url('/fonts/rainy.ttf');
 }
+
+@font-face {
+	font-family: 'Vilna';
+	src: url('/fonts/Mekorot-Vilna.ttf');
+}
+@font-face {
+	font-family: 'Vilna';
+	src: url('/fonts/Mekorot-Vilna-Bold.ttf');
+	font-weight: bold;
+}
+@font-face {
+	font-family: 'Rashi';
+	src: url('/fonts/Mekorot-Rashi.ttf');
+}

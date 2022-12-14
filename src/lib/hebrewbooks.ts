@@ -4,23 +4,36 @@ import sanitizeHtml from 'sanitize-html';
  * @param {string} masechet The masechet we are scraping
  * @param {number} daf The daf we are scraping
  * @param {number} page The page we are scraping, a=1 b=2
- * @returns {string} The html of the page
+ * @returns {string, string, string} The html of the page
  */
 export async function getHtml(
 	masechet: string,
 	daf: number,
 	page: number
-): Promise<string> {
+): Promise<any> {
 	const secondPage = page === 2 ? 'b' : '';
 	const constructedUrl = `https://hebrewbooks.org/shas.aspx?mesechta=${convertMasechetToNumber(
 		masechet
 	)}&daf=${daf}${secondPage}&format=text`;
 	// fetch the html from the url
 	const response = await fetch(constructedUrl);
-	const clean = sanitizeHtml(await response.text());
+	const clean = sanitizeHtml(await response.text(), options);
 	console.log(clean);
+	const regex1 = new RegExp(
+		/<div class="shastext2">((?!<\/div>)[\s\S])*<\/div>/g
+	);
+	const regex2 = new RegExp(
+		/<div class="shastext3">((?!<\/div>)[\s\S])*<\/div>/g
+	);
+	const regex3 = new RegExp(
+		/<div class="shastext4">((?!<\/fieldset>)[\s\S])*<\/fieldset>/g
+	);
+	const main = clean.match(regex1);
+	const rashi = clean.match(regex2);
+	const tosafot = clean.match(regex3);
+
 	// return the html
-	return clean;
+	return { main: main, rashi: rashi, tosafot: tosafot };
 }
 
 function convertMasechetToNumber(masechet: string): number {
@@ -66,3 +79,28 @@ function convertMasechetToNumber(masechet: string): number {
 	};
 	return masechtos[masechet];
 }
+const options = {
+	allowedTags: ['div', 'span', 'strong', 'fieldset'],
+	disallowedTagsMode: 'discard',
+	allowedAttributes: false,
+	allowedClasses: {
+		div: ['shastext1', 'shastext2', 'shastext3', 'shastext4'],
+	}, // Lots of these won't come up by default because we don't allow them
+	selfClosing: [
+		'img',
+		'br',
+		'hr',
+		'area',
+		'base',
+		'basefont',
+		'input',
+		'link',
+		'meta',
+	],
+	// URL schemes we permit
+	allowedSchemes: ['http', 'https', 'ftp', 'mailto', 'tel'],
+	allowedSchemesByTag: {},
+	allowedSchemesAppliedToAttributes: ['href', 'src', 'cite'],
+	allowProtocolRelative: true,
+	enforceHtmlBoundary: true,
+};

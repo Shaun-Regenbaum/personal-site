@@ -3,6 +3,6 @@ import { json } from 'solid-start';
 import { getHtml } from '~/lib/hebrewbooks';
 
 export async function GET() {
-	const result = await getHtml('Berachos', 15, 1);
-	return json(result);
+	const { main, rashi, tosafot } = await getHtml('Berachos', 42, 2);
+	return json({ main, rashi, tosafot });
 }
