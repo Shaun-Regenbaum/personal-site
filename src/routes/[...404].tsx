@@ -1,8 +1,8 @@
 import { A } from 'solid-start';
 
-export default function Error() {
+export default function NotFound() {
 	return (
-		<div class='bg-black h-screen w-full pl-12 pr-4 pt-12 font-coolvetica tracking-wide text-blue-50 text-3xl'>
+		<main class='bg-black h-screen w-full pl-12 pr-4 pt-12 font-coolvetica tracking-wide text-blue-50 text-3xl'>
 			<h1 class='mx-auto'>
 				<span class='font-pixel'>404</span> {'  '}
 				<span class='text-sm'>Page Not Found</span>
@@ -46,6 +46,6 @@ export default function Error() {
 					Home
 				</A>
 			</p>
-		</div>
+		</main>
 	);
 }
