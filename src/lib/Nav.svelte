@@ -1,5 +1,11 @@
-<script lang>
-	const MenuItems = [
+<script lang="ts">
+	interface MenuItem {
+		name: string;
+		href: string;
+		index: number;
+	}
+
+	const MenuItems: MenuItem[] = [
 		{ name: 'About Me', href: '/', index: 1 },
 		{ name: 'Writings', href: '/', index: 2 },
 		{ name: 'Projects', href: '/', index: 3 }
