@@ -1,4 +1,4 @@
-
+<!-- 
 	
 <main class='mx-auto text-gray-700 p-4'>
 			<h1>Daf</h1>
@@ -98,4 +98,4 @@ const masechtot = [
         lineBreaks: 'br',
     }
    
-</script>
+</script> -->

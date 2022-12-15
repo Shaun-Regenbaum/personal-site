@@ -2,7 +2,20 @@
 module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {}
+		extend: {
+			fontFamily: {
+				pixel: 'pixel',
+				coolvetica: 'coolvetica',
+				steamy: 'steamy',
+				science: 'science',
+				jump: 'jump',
+				aorell: 'aorell',
+				threeam: 'threeam',
+				rainy: 'rainy',
+				Vilna: ['Vilna', 'bold'],
+				Rashi: 'Rashi'
+			}
+		}
 	},
 	plugins: []
 };

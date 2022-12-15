@@ -37,6 +37,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"daf-renderer": "^1.1.4"
+		"daf-renderer": "^1.1.4",
+		"esbuild-wasm": "^0.16.7"
 	}
 }
