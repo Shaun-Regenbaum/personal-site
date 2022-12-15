@@ -38,8 +38,8 @@ export async function getHtml(
 
 function convertMasechetToNumber(masechet: string): number {
 	const masechtos = {
-		Berachos: 1,
-		Shabbos: 2,
+		Berachot: 1,
+		Shabbat: 2,
 		Eruvin: 3,
 		Pesachim: 4,
 		Shekalim: 5,
@@ -47,7 +47,7 @@ function convertMasechetToNumber(masechet: string): number {
 		Sukkah: 7,
 		Beitzah: 8,
 		RoshHashana: 9,
-		Taanis: 10,
+		Taanit: 10,
 		Megillah: 11,
 		MoedKatan: 12,
 		Chagigah: 13,
