@@ -9,13 +9,16 @@ type Daf = { main: string; rashi: string; tosafot: string };
 export function routeData() {
 	return createRouteData(async () => {
 		//how to use a local url
-		const response = await fetch('http://127.0.0.1:3000/api/getSample');
+		const response = await fetch(
+			'http://127.0.0.1:3000/api/getSample?masechta=brachot&daf=1'
+		);
 		return (await response.json()) as Daf;
 	});
 }
 export default function Daf() {
 	const data = useRouteData<typeof routeData>();
 	const [loading, setLoading] = createSignal(true);
+	const [masechta, setMasechta] = createSignal('brachot');
 
 	createEffect(() => {
 		const renderer = dafRenderer('#daf-container', {
@@ -38,10 +41,57 @@ export default function Daf() {
 		setLoading(false);
 	});
 
+	const masechtot = [
+		'brachot',
+		'shabbat',
+		'eruvin',
+		'pesachim',
+		'shekalim',
+		'yoma',
+		'sukkah',
+		'beitzah',
+		'rosh hashana',
+		'taanit',
+		'megillah',
+		'moed katan',
+		'chagigah',
+		'yevamot',
+		'ketubot',
+		'nedarim',
+		'nazir',
+		'sotah',
+		'gitin',
+		'kidushin',
+		'bava kamma',
+		'bava metzia',
+		'bava batra',
+		'sanhedrin',
+		'makkot',
+		'shevuot',
+		'avodah zarah',
+		'horayot',
+		'zevachim',
+		'menachot',
+		'chullin',
+		'bechorot',
+		'arachin',
+		'temurah',
+		'keritot',
+		'meilah',
+		'tamid',
+		'middot',
+		'kinot',
+		'niddah',
+	];
+
 	return (
 		<main class='mx-auto text-gray-700 p-4'>
 			<h1>Daf</h1>
-			<Dropdown></Dropdown>
+			<Dropdown
+				options={masechtot}
+				option={masechta}
+				setOption={setMasechta}
+			></Dropdown>
 			<div class='hidden'>{JSON.stringify(data())}</div>
 			<Show when={loading()}>
 				<p>Loading...</p>

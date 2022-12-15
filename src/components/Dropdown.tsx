@@ -1,6 +1,14 @@
-import { createSignal, JSX, Show } from 'solid-js';
+import { Accessor, createSignal, For, JSX, Setter, Show } from 'solid-js';
 
-export default function App(): JSX.Element {
+export default function Dropdown({
+	options,
+	option,
+	setOption,
+}: {
+	options: string[];
+	option: Accessor<string>;
+	setOption: Setter<string>;
+}): JSX.Element {
 	const [open, setOpen] = createSignal(false);
 	return (
 		<div class='mx-auto ml-12 relative inline-block text-left'>
@@ -17,7 +25,7 @@ export default function App(): JSX.Element {
 					aria-expanded='true'
 					aria-haspopup='true'
 				>
-					Options
+					{option()}
 					<svg
 						class='-mr-1 ml-2 h-5 w-5'
 						xmlns='http://www.w3.org/2000/svg'
@@ -45,33 +53,20 @@ export default function App(): JSX.Element {
 						class='py-1'
 						role='none'
 					>
-						<a
-							href='#'
-							class='text-gray-700 block px-4 py-2 text-sm'
-							role='menuitem'
-							tabindex='-1'
-							id='menu-item-0'
-						>
-							Account settings
-						</a>
-						<a
-							href='#'
-							class='text-gray-700 block px-4 py-2 text-sm'
-							role='menuitem'
-							tabindex='-1'
-							id='menu-item-1'
-						>
-							Support
-						</a>
-						<a
-							href='#'
-							class='text-gray-700 block px-4 py-2 text-sm'
-							role='menuitem'
-							tabindex='-1'
-							id='menu-item-2'
-						>
-							License
-						</a>
+						<For each={options}>
+							{(opt) => (
+								<button
+									type='button'
+									class='text-gray-700 block w-full px-4 py-2 text-left text-sm'
+									role='menuitem'
+									tabindex='-1'
+									id='menu-item-0'
+									onclick={() => setOption(opt)}
+								>
+									{opt}
+								</button>
+							)}
+						</For>
 						<form
 							method='post'
 							action='#'
