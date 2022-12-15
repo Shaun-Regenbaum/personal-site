@@ -7,8 +7,8 @@
 
 	const MenuItems: MenuItem[] = [
 		{ name: 'About Me', href: '/', index: 1 },
-		{ name: 'Writings', href: '/writings', index: 2 },
-		{ name: 'Projects', href: '/projects', index: 3 }
+		{ name: 'Writings', href: '/', index: 2 },
+		{ name: 'Projects', href: '/', index: 3 }
 	];
 
 	const falseCss =
