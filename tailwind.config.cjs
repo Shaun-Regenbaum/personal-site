@@ -7,8 +7,9 @@ module.exports = {
 				pixel: 'pixel',
 				coolvetica: 'coolvetica',
 				steamy: 'steamy',
-				science: 'science',
 				jump: 'jump',
+
+				science: 'science',
 				aorell: 'aorell',
 				threeam: 'threeam',
 				rainy: 'rainy',
