@@ -6,28 +6,31 @@ import sanitizeHtml from 'sanitize-html';
  * @param {number} page The page we are scraping, a=1 b=2
  * @returns {string, string, string} The html of the page
  */
-export async function getHtml(
-	masechet: string,
-	daf: number,
-	page: number
-): Promise<any> {
+export async function getHtml(masechet: string, daf: number, page: number): Promise<any> {
 	const secondPage = page === 2 ? 'b' : '';
 	const constructedUrl = `https://hebrewbooks.org/shas.aspx?mesechta=${convertMasechetToNumber(
 		masechet
 	)}&daf=${daf}${secondPage}&format=text`;
 	// fetch the html from the url
 	const response = await fetch(constructedUrl);
-	const clean = sanitizeHtml(await response.text(), options);
-	console.log(clean);
-	const regex1 = new RegExp(
-		/<div class="shastext2">((?!<\/div>)[\s\S])*<\/div>/g
-	);
-	const regex2 = new RegExp(
-		/<div class="shastext3">((?!<\/div>)[\s\S])*<\/div>/g
-	);
-	const regex3 = new RegExp(
-		/<div class="shastext4">((?!<\/fieldset>)[\s\S])*<\/fieldset>/g
-	);
+	const clean = sanitizeHtml(await response.text(), {
+		allowedTags: ['div', 'span', 'strong', 'fieldset'],
+		disallowedTagsMode: 'discard',
+		allowedAttributes: false,
+		allowedClasses: {
+			div: ['shastext1', 'shastext2', 'shastext3', 'shastext4']
+		}, // Lots of these won't come up by default because we don't allow them
+		selfClosing: ['img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta'],
+		// URL schemes we permit
+		allowedSchemes: ['http', 'https', 'ftp', 'mailto', 'tel'],
+		allowedSchemesByTag: {},
+		allowedSchemesAppliedToAttributes: ['href', 'src', 'cite'],
+		allowProtocolRelative: true,
+		enforceHtmlBoundary: true
+	});
+	const regex1 = new RegExp(/<div class="shastext2">((?!<\/div>)[\s\S])*<\/div>/g);
+	const regex2 = new RegExp(/<div class="shastext3">((?!<\/div>)[\s\S])*<\/div>/g);
+	const regex3 = new RegExp(/<div class="shastext4">((?!<\/fieldset>)[\s\S])*<\/fieldset>/g);
 	const main = clean.match(regex1);
 	const rashi = clean.match(regex2);
 	const tosafot = clean.match(regex3);
@@ -37,8 +40,8 @@ export async function getHtml(
 }
 
 function convertMasechetToNumber(masechet: string): number {
-	const masechtos = {
-		Berachot: 1,
+	const masechtot = {
+		Brachot: 1,
 		Shabbat: 2,
 		Eruvin: 3,
 		Pesachim: 4,
@@ -61,46 +64,26 @@ function convertMasechetToNumber(masechet: string): number {
 		BavaMetzia: 21,
 		BavaBasra: 22,
 		Sanhedrin: 23,
-		Makos: 24,
-		Shevuos: 25,
+		Makot: 24,
+		Shevuot: 25,
 		AvodahZarah: 26,
-		Horayos: 27,
+		Horayot: 27,
 		Zevachim: 28,
 		Menachot: 29,
 		Chullin: 30,
-		Bechoros: 31,
+		Bechorot: 31,
 		Arachin: 32,
 		Temurah: 33,
-		Kerisos: 34,
+		Kerisot: 34,
 		Meilah: 35,
 		Tamid: 36,
-		Middos: 37,
-		Niddah: 38,
+		Middot: 37,
+		Niddah: 38
 	};
-	return masechtos[masechet];
+	try {
+		//@ts-ignore because we deal with the error of not finding the masechet
+		return masechtot[masechet];
+	} catch {
+		return 1;
+	}
 }
-const options = {
-	allowedTags: ['div', 'span', 'strong', 'fieldset'],
-	disallowedTagsMode: 'discard',
-	allowedAttributes: false,
-	allowedClasses: {
-		div: ['shastext1', 'shastext2', 'shastext3', 'shastext4'],
-	}, // Lots of these won't come up by default because we don't allow them
-	selfClosing: [
-		'img',
-		'br',
-		'hr',
-		'area',
-		'base',
-		'basefont',
-		'input',
-		'link',
-		'meta',
-	],
-	// URL schemes we permit
-	allowedSchemes: ['http', 'https', 'ftp', 'mailto', 'tel'],
-	allowedSchemesByTag: {},
-	allowedSchemesAppliedToAttributes: ['href', 'src', 'cite'],
-	allowProtocolRelative: true,
-	enforceHtmlBoundary: true,
-};
