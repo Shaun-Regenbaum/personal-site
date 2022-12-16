@@ -49,6 +49,8 @@
 		'niddah'
 	];
 
+	const dafNumbers = Array.from(Array(100).keys()).map((i) => i + 1);
+
 	const options = {
 		contentWidth: '650px',
 		fontSize: {
@@ -76,6 +78,24 @@
 </script>
 
 <main class="mx-auto text-gray-700 p-4">
+	<form method="POST">
+		<select>
+			{#each masechtot as masechet}
+				<option value={masechet}>{masechet}</option>
+			{/each}
+		</select>
+		<select>
+			{#each dafNumbers as number}
+				<option value={number}>{number}</option>
+			{/each}
+		</select>
+		<select>
+			<option value="a">a</option>
+			<option value="b">b</option>
+		</select>
+		<button type="submit">Submit</button>
+	</form>
+
 	<h1>Daf</h1>
 	<div class="pl-50 w-[660px]">
 		<div class=" block" id="daf-container" />
