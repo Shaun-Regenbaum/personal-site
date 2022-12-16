@@ -18,6 +18,7 @@
 		"@sveltejs/adapter-auto": "^1.0.0",
 		"@sveltejs/adapter-netlify": "^1.0.0-next.88",
 		"@sveltejs/kit": "^1.0.0",
+		"@types/node": "^18.11.15",
 		"@types/sanitize-html": "^2.6.2",
 		"autoprefixer": "^10.4.13",
 		"postcss": "^8.4.20",
@@ -36,6 +37,7 @@
 	"dependencies": {
 		"daf-renderer": "^1.1.4",
 		"esbuild-wasm": "0.16.7",
+		"ioredis": "^5.2.4",
 		"node-html-parser": "^6.1.4",
 		"sanitize-html": "^2.8.0"
 	}
