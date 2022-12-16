@@ -2,9 +2,9 @@
 	// @ts-ignore
 	import dafRenderer from 'daf-renderer';
 	import { onMount } from 'svelte';
+	import type { DafData } from '$lib/types';
 
-	/** @type {import('./$types').PageData} */
-	export let data: { main: string; rashi: string; tosafot: string };
+	export let data: DafData;
 
 	const masechtot = [
 		'Brachot',
@@ -64,6 +64,7 @@
 		lineBreaks: 'br'
 	};
 	onMount(async () => {
+		// @ts-ignore as the type definitions are not up to date for daf-renderer
 		const renderer = dafRenderer('#daf-container', options);
 		// When you have complex inputs such as above, you may have to put the render function in a timeout as Chromium struggles to provide the inputs fast enough. What this is doing is essentially giving Chrome an extra 10 millisenconds to process the inputs.
 		renderer.render(data.main, data.rashi, data.tosafot, 'b');

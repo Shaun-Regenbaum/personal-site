@@ -1,7 +1,7 @@
-/** @type {import('./$types').PageServerLoad} */
 import { getHtml } from '$lib/hebrewbooks';
+import type { DafData } from '$lib/types';
 
-export async function load() {
+export async function load(): Promise<DafData> {
 	const masechet = 'Brachot';
 	const masechtot = {
 		Brachot: 1,
@@ -49,12 +49,12 @@ export async function load() {
 			main: main,
 			rashi: rashi,
 			tosafot: tosafot
-		};
+		} satisfies DafData;
 	} else {
 		return {
 			main: 'Invalid Masechet',
 			rashi: 'Invalid Masechet',
 			tosafot: 'Invalid Masechet'
-		};
+		} satisfies DafData;
 	}
 }
