@@ -50,12 +50,12 @@
 	];
 
 	const options = {
-		contentWidth: '400px',
+		contentWidth: '650px',
 		fontSize: {
 			side: '10.5px'
 		},
 		padding: {
-			vertical: '10px'
+			vertical: '0px'
 		},
 		lineHeight: {
 			main: '16px'
