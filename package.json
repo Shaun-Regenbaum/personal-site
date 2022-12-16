@@ -36,6 +36,7 @@
 	"dependencies": {
 		"daf-renderer": "^1.1.4",
 		"esbuild-wasm": "0.16.7",
+		"node-html-parser": "^6.1.4",
 		"sanitize-html": "^2.8.0"
 	}
 }

@@ -67,13 +67,17 @@
 		// @ts-ignore as the type definitions are not up to date for daf-renderer
 		const renderer = dafRenderer('#daf-container', options);
 		// When you have complex inputs such as above, you may have to put the render function in a timeout as Chromium struggles to provide the inputs fast enough. What this is doing is essentially giving Chrome an extra 10 millisenconds to process the inputs.
-		renderer.render(data.main, data.rashi, data.tosafot, 'b');
+		//wait 100 ms
+		setTimeout(() => {
+			//render the daf
+			renderer.render(data.main, data.rashi, data.tosafot, 'b');
+		}, 80);
 	});
 </script>
 
 <main class="mx-auto text-gray-700 p-4">
 	<h1>Daf</h1>
 	<div class="pl-50 w-[660px]">
-		<div class="select-auto block" id="daf-container" />
+		<div class=" block" id="daf-container" />
 	</div>
 </main>

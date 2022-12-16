@@ -1,4 +1,36 @@
 import sanitizeHtml from 'sanitize-html';
+import { parse, valid } from 'node-html-parser';
+import fs from 'fs';
+
+const options = {
+	lowerCaseTagName: false, // convert tag name to lower case (hurts performance heavily)
+	comment: false, // retrieve comments (hurts performance slightly)
+	voidTag: {
+		tags: [
+			'area',
+			'base',
+			'br',
+			'col',
+			'embed',
+			'hr',
+			'img',
+			'input',
+			'link',
+			'meta',
+			'param',
+			'source',
+			'track',
+			'wbr'
+		], // optional and case insensitive, default value is ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']
+		addClosingSlash: true // optional, default false. void tag serialisation, add a final slash <br/>
+	},
+	blockTextElements: {
+		script: false, // keep text content when parsing
+		noscript: false, // keep text content when parsing
+		style: false, // keep text content when parsing
+		pre: false // keep text content when parsing
+	}
+};
 
 /** We are using this to scrape the html from hebrewbooks.org
  * @param {string} masechet The masechet we are scraping
@@ -13,6 +45,13 @@ export async function getHtml(masechet: string, daf: number, page: number): Prom
 	)}&daf=${daf}${secondPage}&format=text`;
 	// fetch the html from the url
 	const response = await fetch(constructedUrl);
+	console.log(await response.clone().text());
+	let body = parse(await response.clone().text(), options);
+	const shastext2 = body.querySelector('.shastext2')?.toString();
+	const shastext3 = body.querySelector('.shastext3')?.toString();
+	const shastext4 = body.querySelector('.shastext4')?.toString();
+	// console.log(shastext3);
+
 	const clean = sanitizeHtml(await response.text(), {
 		allowedTags: ['div', 'span', 'strong', 'fieldset'],
 		disallowedTagsMode: 'discard',
@@ -28,6 +67,8 @@ export async function getHtml(masechet: string, daf: number, page: number): Prom
 		allowProtocolRelative: true,
 		enforceHtmlBoundary: true
 	});
+	// create new  file with the html
+	fs.writeFileSync('src/lib/test.html', clean);
 	const regex1 = new RegExp(/<div class="shastext2">((?!<\/div>)[\s\S])*<\/div>/g);
 	const regex2 = new RegExp(/<div class="shastext3">((?!<\/div>)[\s\S])*<\/div>/g);
 	const regex3 = new RegExp(/<div class="shastext4">((?!<\/fieldset>)[\s\S])*<\/fieldset>/g);
@@ -36,7 +77,11 @@ export async function getHtml(masechet: string, daf: number, page: number): Prom
 	const tosafot = clean.match(regex3);
 
 	// return the html
-	return { main: main, rashi: rashi, tosafot: tosafot };
+	return {
+		main: shastext2,
+		rashi: shastext3,
+		tosafot: shastext4
+	};
 }
 
 function convertMasechetToNumber(masechet: string): number {
