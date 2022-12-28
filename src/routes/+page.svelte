@@ -3,37 +3,45 @@
 </script>
 
 <div>
-	<Nav startIndex={1} />
+	<Nav selected={1} menuShow={false} />
 	<main class=" bg-gray-800 h-full text-white">
 		<section class="pl-12 pt-12">
-			<h1 class="font-coolvetica text-white text-3xl sm:text-5xl">I am</h1>
-			<br />
-			<h2 class="font-pixel text-white text-xl sm:text-3xl">Shaun Regenbaum</h2>
+			<h1 class="inline  font-coolvetica text-white text-3xl sm:text-5xl">I am{' '}</h1>
+			<h2 class="inline align-text-bottom font-pixel text-white text-xl sm:text-3xl">
+				{' '}Shaun Regenbaum
+			</h2>
 		</section>
-		<section class="pl-16 sm:pl-20 pt-12">
+		<section class="pl-16 sm:pl-20 pt-4">
 			<h3>
-				My family is from Johanessburg, South Africa.
-				<span class="text-3xl"> 🇿🇦</span>
+				My family hails from Johanessburg, South Africa.
+				<span class="text-3xl align-middle">{' '}🇿🇦</span>
 			</h3>
 			<h3>
-				I grew up in Atlanta, Georgia.<span class="text-3xl"> 🇺🇸</span>
+				Grew up as a First Gen. American in Atlanta, Georgia.<span class="text-3xl align-middle"
+					>{' '}🇺🇸</span
+				>
 			</h3>
 			<h3>
-				I now live in Jerusalem, Israel.<span class="text-3xl"> 🇮🇱</span>
+				Immigrated and now living in Jerusalem, Israel.<span class="text-3xl align-middle"
+					>{' '}🇮🇱</span
+				>
 			</h3>
 		</section>
-		<section class="pl-20 sm:pl-28 pt-12">
+		<section class="pl-20 sm:pl-28 pt-8 space-y-4">
+			<h3>
+				I am a <span class="font-aorell text-3xl align-text-bottom">religious Jew.</span>
+			</h3>
 			<h3>
 				I am an <span class="font-threeam text-3xl">engineer.</span>
 			</h3>
 			<h3>
-				And a <span class="font-science text-3xl">researcher.</span>
+				I am a <span class="font-science text-3xl">researcher.</span>
 			</h3>
 			<br />
 		</section>
-		<section class="pl-12 pt-12">
+		<section class="pl-12 pt-12 space-y-4">
 			<p class="align-bottom">
-				Paid for <span class="font-threeam">College</span> by selling my first
+				Paid for <span class="font-threeam">College</span> after selling my first
 				<span class="font-threeam">Business</span> in high school.
 			</p>
 			<div />
@@ -53,13 +61,17 @@
 			</div>
 			<br />
 			<p>
-				Published my first paper in{' '}
+				My first scientific <a class="underline" href="https://pubmed.ncbi.nlm.nih.gov/33627489/"
+					>paper</a
+				>
+				was published in{' '}
 				<span class="font-science text-lg">Science</span>.
 			</p>
 			<p>
-				Worked in Nahmias Lab at HU (
-				<span class="font-threeam">Cultivated Meat</span> and{' '}
-				<span class="font-threeam">Tissue-on-a-chip</span>).
+				Worked on <span class="font-threeam">Cultivated Meat</span> and{' '}
+				<span class="font-threeam">Tissue-on-a-chip</span> at the
+				<a class="underline" href="https://www.nahmias-lab.com"> Nahmias Lab </a>
+				at <span class="font-science text-lg">HUJI.</span>
 			</p>
 			<p>
 				Worked on population genomics at{' '}
@@ -68,14 +80,14 @@
 			{' '}
 			<p>
 				Founded{' '}
-				<span>
+				<span class="align-text-bottom">
 					<svg
 						viewBox="0 0 127 51"
 						width="48px"
-						height="48px"
+						height="18px"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
-						class="inline align-middle"
+						class="inline align-text-bottom"
 					>
 						<path
 							d="M51.2059 0.159058L73.7614 0.159159C80.2702 0.15919 85.5466 5.43565 85.5466 11.9445V40.7435H76.181V13.0603C76.181 11.1076 74.598 9.52469 72.6454 9.52469H51.2059V0.159058Z"
@@ -103,42 +115,45 @@
 				, a profitable VC-Backed company at the end of college, still in operation.
 			</p>
 		</section>
-		<section class="pl-12 pt-12">
-			<p>
-				<span class="font-steamy text-3xl">I</span> Like STM{' '}
-				<span class="font-jump text-xl">{'>'}</span> Arduino
-			</p>
-			<p>
-				<span class="font-jump text-3xl">I</span> Like Typescript{' '}
-				<span class="font-jump text-xl">{'>'}</span> Javascript
-			</p>
-			<p>
-				<span class="font-jump text-3xl">I</span> Like Julia{' '}
-				<span class="font-jump text-xl">{'>'}</span> R
-			</p>
-
-			<p>
-				<span class="font-jump text-3xl">I</span> Like Large Language Models
-			</p>
-			<p>
-				<span class="font-jump text-3xl">I</span> Like VSCode
-			</p>
-			<p>
-				<span class="font-jump text-3xl">I</span> Like Talmud
-			</p>
-			<p>
-				<span class="font-jump text-3xl">I</span> Don't like driving (waiting for autonomous cars)
-			</p>
-			<p>
-				<span class="font-jump text-3xl">I</span> Don't like disease (working on eliminating it)
-			</p>
-			<p>
-				<span class="font-jump text-3xl">I</span> Don't like hoarding wealth
-			</p>
-		</section>
 		<br />
-		<div class="flex flex-row justify-center items-center">
-			<p class=" pl-4 font-rainy text-2xl">
+		<section class="pl-12 pt-12 text-md font-coolvetica">
+			<div class="font-jump text-2xl">Things I like and dislike:</div>
+			<div class="pl-6">
+				<p>
+					<span class="font-jump text-3xl">i</span> Like STM{' '}
+					<span class="font-jump text-xl">{'>'}</span> Arduino
+				</p>
+				<p>
+					<span class="font-jump text-3xl">I</span> Like Typescript{' '}
+					<span class="font-jump text-xl">{'>'}</span> Javascript
+				</p>
+				<p>
+					<span class="font-jump text-3xl">I</span> Like Julia{' '}
+					<span class="font-jump text-xl">{'>'}</span> R
+				</p>
+
+				<p>
+					<span class="font-jump text-3xl">I</span> Like Large Language Models
+				</p>
+				<p>
+					<span class="font-jump text-3xl">I</span> Like VSCode
+				</p>
+				<p>
+					<span class="font-jump text-3xl">I</span> Like Talmud
+				</p>
+				<p>
+					<span class="font-jump text-3xl">I</span> Don't Like Driving (waiting for autonomous cars)
+				</p>
+				<p>
+					<span class="font-jump text-3xl">I</span> Don't Like Disease (working on eliminating it)
+				</p>
+				<p>
+					<span class="font-jump text-3xl">I</span> Don't Like Hoarding Wealth
+				</p>
+			</div>
+		</section>
+		<div class="mt-24 flex flex-row justify-center items-center">
+			<p class=" pl-4 font-rainy text-2xl pb-10">
 				This site still a work in Progress and will be updated later...
 			</p>
 		</div>
