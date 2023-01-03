@@ -1,8 +1,8 @@
 import Redis from 'ioredis';
+import { env } from '$env/dynamic/public';
 
 export const db = new Redis({
-	host: 'redis-12707.c245.us-east-1-3.ec2.cloud.redislabs.com',
+	host: env.PUBLIC_REDIS_HOST,
 	port: 12707,
-	password: 'aHesY06UFGLTPZaCDYATh9ff6TEODzB5'
+	password: env.PUBLIC_REDIS_PASSWORD
 });
-
