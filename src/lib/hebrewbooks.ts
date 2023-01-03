@@ -1,6 +1,6 @@
 import sanitizeHtml from 'sanitize-html';
 import { parse, valid } from 'node-html-parser';
-import fs from 'fs';
+import fs from 'node:fs';
 
 const options = {
 	lowerCaseTagName: false, // convert tag name to lower case (hurts performance heavily)
