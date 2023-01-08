@@ -6,6 +6,44 @@
 	font-family: 'pixel';
 	src: url('/fonts/nineteen.ttf');
 }
+
+@font-face {
+	font-family: 'metropolis';
+	src: url('/fonts/Metropolis-Regular.otf');
+}
+
+@font-face {
+	font-family: 'metropolis';
+	src: url('/fonts/Metropolis-RegularItalic.otf');
+	font-style: italic;
+}
+@font-face {
+	font-family: 'metropolis';
+	src: url('/fonts/Metropolis-Black.otf');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'metropolis';
+	src: url('/fonts/Metropolis-Bold.otf');
+	font-weight: 600;
+}
+@font-face {
+	font-family: 'metropolis';
+	src: url('/fonts/Metropolis-ExtraBold.otf');
+	font-weight: 700;
+}
+@font-face {
+	font-family: 'metropolis';
+	src: url('/fonts/Metropolis-Light.otf');
+	font-weight: 300;
+}
+@font-face {
+	font-family: 'metropolis';
+	src: url('/fonts/Metropolis-ExtraLight.otf');
+	font-weight: 200;
+}
+
 @font-face {
 	font-family: 'coolvetica';
 	src: url('/fonts/coolvetica.otf');

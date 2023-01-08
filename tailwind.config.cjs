@@ -14,7 +14,8 @@ module.exports = {
 				threeam: 'threeam',
 				rainy: 'rainy',
 				Vilna: ['Vilna', 'bold'],
-				Rashi: 'Rashi'
+				Rashi: 'Rashi',
+				metropolis: 'Metropolis'
 			}
 		}
 	},
