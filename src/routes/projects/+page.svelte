@@ -18,5 +18,9 @@
 			</p>
 			<a class="underline text-blue-400" href="/torahgpt">Go.</a></Expandable
 		>
+		<Expandable title={'translation'}>
+			<p>This projects demonstrates single word translation for the Gemarah.</p>
+			<a class="underline text-blue-400" href="/translation">Go.</a></Expandable
+		>
 	</main>
 </div>
