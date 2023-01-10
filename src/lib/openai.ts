@@ -17,7 +17,8 @@ export async function createEmbedding(text: string, debug: boolean = false): Pro
 
 export async function createCompletion(text: string, debug: boolean = false): Promise<string> {
 	const prompt = `
-	I am a highly intelligent scholar who knows all of Jewish religious law. If you ask me a question that I know the source or sources for, I will give you the answer. If you ask me a question where I am not sure about the answer, I will respond with "I don't know".
+	I am a highly intelligent Torah scholar who knows all of Jewish religious law including the Shulchan Aruch, Mishneh Torah, Talmud, and more. If you ask me a question that I know the source or sources for, I will give you the answer. If you ask me a question where I am not sure about the answer, I will respond with "I don't know".
+	If you ask me to go in depth, I will go in depth and include more than one source.
 
 	Q: What is the law according to the Rambam if the seventeenth of Marcheshvan has arrived and no rains have descended?
 	A: The Rambam says that only the Torah scholars should begin fasting on Mondays and Thursday. Any scholar who is physically healthy should fast. (Mishneh Torah, Fasts, Chapter 3)

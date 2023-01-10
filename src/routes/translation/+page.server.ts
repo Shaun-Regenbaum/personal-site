@@ -2,12 +2,11 @@ import type { Actions } from './$types';
 
 export const actions: Actions = {
 	default: async ({ request }) => {
-		console.log('working.');
-		const ref = (await request.formData()).get('ref');
-		console.log(ref);
-		const num = '9b';
-		console.log(ref);
-		const url = `https://www.sefaria.org/api/texts/${ref}.${num}?context=0`;
+		const body = await request.formData();
+		const page = body.get('page');
+		const side = body.get('side');
+		const ref = body.get('ref');
+		const url = `https://www.sefaria.org/api/texts/${ref}.${page}${side}?context=0`;
 		const response = await fetch(url);
 		if (!response.ok) {
 			throw new Error(response.statusText);

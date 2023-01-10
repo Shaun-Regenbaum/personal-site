@@ -10,11 +10,11 @@
 		return fetch('/torahgpt', {
 			method: 'POST',
 			headers: {
-				'Content-Type': 'application/json',
+				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
-				question: text,
-			}),
+				question: text
+			})
 		})
 			.then(async (response) => {
 				const result = response.text();
@@ -34,25 +34,17 @@
 			This is a <span class="font-bold">demo</span>.
 		</h1>
 
-		<div
-			class="w-fit h-fit mt-4 p-2  bg-gray-100 rounded-lg shadow-sm border-gray-300 border"
-		>
+		<div class="w-fit h-fit mt-4 p-2  bg-gray-100 rounded-lg shadow-sm border-gray-300 border">
 			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
-				Please <span class="underline">do not</span> use this for any serious halachic
-				questions.
+				Please <span class="underline">do not</span> use this for any serious halachic questions.
 			</p>
-			<div
-				class="w-fit h-fit ml-3 my-3 py-1 px-2 rounded-xl bg-red-200 shadow-sm"
-			>
+			<div class="w-fit h-fit ml-3 my-3 py-1 px-2 rounded-xl bg-red-200 shadow-sm">
 				<p class="text-xs text-gray-800">
-					The current tested accuracy is <span class="text-red-400"
-						>below 45%.</span
-					>
+					The current tested accuracy is <span class="text-red-400">below 45%.</span>
 				</p>
 			</div>
 			<p class="ml-4 mb-3 text-sm max-w-sm font-medium text-gray-700">
-				We are actively working on improving the results and the ability to
-				quote sources.
+				We are actively working on improving the results and the ability to quote sources.
 			</p>
 			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
 				If you don't know what this is, click <a
@@ -69,9 +61,7 @@
 		</div>
 	</div>
 	<div class=" px-4 py-5 sm:px-6">
-		<label
-			for="question"
-			class="block  text-sm font-medium text-gray-700"
+		<label for="question" class="block  text-sm font-medium text-gray-700"
 			>Ask a Question to TorahGPT:</label
 		>
 		<input
@@ -88,17 +78,19 @@
 		>
 			Click <span>here</span> for some examples.
 		</button>
-		<ul
-			hidden={hideExamples}
-			class="ml-2 text-xs"
-		>
+		<ul hidden={hideExamples} class="ml-2 text-xs">
 			<li>
-				- "What does the Rambam say to do if the seventeenth of Marcheshvan has
-				arrived and no rains have yet descended?"
+				- "What does the Rambam say to do if the seventeenth of Marcheshvan has arrived and no rains
+				have yet descended?"
 			</li>
 			<li>
-				- "Do I have to replace my tzitzit if some of the string breaks at the
-				loop connecting the beged?"
+				- "Do I have to replace my tzitzit if some of the string breaks at the loop connecting the
+				beged?"
+			</li>
+			<li>- "Please go in depth, why was there an added Bracha to the Amidah?"</li>
+			<li>
+				- "According to the lenient opinion, do I have to replace my tzitzit if some of the string
+				breaks at the loop connecting the beged?"
 			</li>
 		</ul>
 
@@ -110,10 +102,6 @@
 		>
 	</div>
 	<div class="px-4 py-5 sm:p-6">
-		<Answer
-			{answer}
-			{awaitedAnswer}
-			bind:question={text}
-		/>
+		<Answer {answer} {awaitedAnswer} bind:question={text} />
 	</div>
 </div>

@@ -10,7 +10,7 @@
 </script>
 
 {#if words}
-	<div class="w-fit my-4 ml-12 p-4 bg-gray-200 rounded border-black border-2">
+	<div class="w-fit my-4 mx-12 p-4 bg-gray-200 rounded border-black border-2">
 		{#each words as singleWord}
 			<button
 				on:click={(event) => {
