@@ -1,7 +1,7 @@
 <script lang="ts">
 	import WordSelect from '$lib/components/WordSelect.svelte';
 	let awaitedAnswer: any;
-	let awaitedAnswer2: string;
+	let awaitedAnswer2: any;
 	let chosenWord: string;
 	$: selected = 0;
 	let loading = false;
@@ -28,12 +28,12 @@
 		})
 			.then(async (response) => {
 				const result = response.json();
-				console.log(await result);
 				awaitedAnswer2 = await result;
 				loading = false;
 				return awaitedAnswer2;
 			})
 			.catch(() => {
+				loading = false;
 				throw new Error(awaitedAnswer2);
 			});
 	}
@@ -52,12 +52,12 @@
 		})
 			.then(async (response) => {
 				const result = response.text();
-				console.log(result);
 				awaitedAnswer = (await result).slice(1, -1);
 				loading = false;
 				return awaitedAnswer;
 			})
 			.catch(() => {
+				loading = false;
 				throw new Error(chosenWord);
 			});
 	}
@@ -104,7 +104,6 @@
 	class="inline-block w-[300px] ml-4 p-2 rounded-md border-gray-300 border-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
 	max={form ? form.text.length : 1}
 	bind:value={selected}
-	on:click={() => getRashi()}
 />
 
 <WordSelect sentences={hebrew} bind:word={chosenWord} bind:selected />
@@ -118,13 +117,17 @@
 	Translate</button
 >
 
-{#if awaitedAnswer}
+{#if loading}
+	<div class="w-fit bg-gray-200 border-black border-2 rounded mx-12 mt-12 p-4">
+		<p>Loading...</p>
+	</div>
+{:else if awaitedAnswer}
 	<div class="w-fit bg-gray-200 border-black border-2 rounded mx-12 mt-12 p-4">
 		<p>{awaitedAnswer}</p>
 	</div>
 {/if}
 
-<br />
+<!-- <br />
 <div class="w-fit bg-gray-200 border-black border-2 rounded mx-12 mt-12 p-4">
 	<p>Is there Rashi?</p>
 	{#if awaitedAnswer2}
@@ -138,4 +141,4 @@
 	{:else}
 		<p>No</p>
 	{/if}
-</div>
+</div> -->

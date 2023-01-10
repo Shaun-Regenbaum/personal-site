@@ -52,7 +52,8 @@ export async function createTranslation(
 	word: string,
 	debug: boolean = false
 ): Promise<string> {
-	const prompt = `Aramaic: ${aramaic}
+	const prompt = `I am a highl intelligent Torah scholar who knows all of the Talmud, someone is asking me about the individual translation of a word. I wish to help.
+	Aramaic: ${aramaic}
 	English: ${english}
 
 	What is the translation of ${word}?
