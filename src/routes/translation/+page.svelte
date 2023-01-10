@@ -2,7 +2,7 @@
 	import WordSelect from '$lib/components/WordSelect.svelte';
 	let awaitedAnswer: string;
 	let chosenWord: string;
-	let selected = 0;
+	$: selected = 0;
 	let loading = false;
 
 	export let form: any;
