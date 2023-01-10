@@ -7,6 +7,11 @@ export async function POST({ request }: any) {
 	const body = await request.json();
 	const { question } = body;
 	const id = uuid();
+	try {
+		await db.connect();
+	} catch (e) {
+		if (debug) console.log(e);
+	}
 	db.set(`question:${id}`, question)
 		.then(() => {
 			if (debug) console.log('Question Stored');
@@ -23,7 +28,11 @@ export async function POST({ request }: any) {
 		.catch(() => {
 			if (debug) console.log('Failure to Store Answer');
 		});
-
+	try {
+		db.disconnect();
+	} catch (e) {
+		if (debug) console.log(e);
+	}
 	//Todo, store the answer
 	return json(text);
 }

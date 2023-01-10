@@ -13,7 +13,7 @@ export const actions: Actions = {
 		}
 		console.log('Finished');
 		const data = await response.json();
-		console.log(data.text);
+		console.log(data);
 		return data;
 	}
 };
