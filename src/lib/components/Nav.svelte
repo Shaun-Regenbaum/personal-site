@@ -8,7 +8,7 @@
 	const items: MenuItem[] = [
 		{ name: 'About Me', href: '/', index: 1 },
 		{ name: 'Writings', href: '/', index: 2 },
-		{ name: 'Projects', href: '/', index: 3 }
+		{ name: 'Projects', href: '/projects', index: 3 }
 	];
 
 	export let selected = 1;

@@ -38,6 +38,8 @@
 		"daf-renderer": "^1.1.4",
 		"ioredis": "^5.2.4",
 		"node-html-parser": "^6.1.4",
-		"sanitize-html": "^2.8.0"
+		"openai": "^3.1.0",
+		"sanitize-html": "^2.8.0",
+		"uuid": "^9.0.0"
 	}
 }

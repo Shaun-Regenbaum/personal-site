@@ -1,10 +1,8 @@
 <script>
 	import Expandable from '$lib/components/Expandable.svelte';
-	import Nav from '$lib/components/Nav.svelte';
 </script>
 
 <div>
-	<Nav selected={1} menuShow={false} />
 	<main class=" bg-slate-500 h-full text-white">
 		<section class="pl-12 pt-12">
 			<h1 class="inline font-metropolis font-bold text-3xl sm:text-5xl">I am{' '}</h1>
@@ -12,6 +10,19 @@
 				{' '}Shaun Regenbaum
 			</h2>
 		</section>
+		<Expandable title={'who'}>
+			<div class="space-y-4">
+				<h3>
+					I am a <span class="font-aorell text-3xl align-bottom">religious Jew.</span>
+				</h3>
+				<h3>
+					I am an <span class="font-threeam text-3xl">engineer.</span>
+				</h3>
+				<h3>
+					I am a <span class="font-science text-3xl">researcher.</span>
+				</h3>
+			</div>
+		</Expandable>
 		<Expandable title={'where'}>
 			<h3>
 				My family hails from Johanessburg, South Africa.
@@ -27,19 +38,6 @@
 					>{' '}🇮🇱</span
 				>
 			</h3>
-		</Expandable>
-		<Expandable title={'who'}>
-			<div class="space-y-4">
-				<h3>
-					I am a <span class="font-aorell text-3xl align-bottom">religious Jew.</span>
-				</h3>
-				<h3>
-					I am an <span class="font-threeam text-3xl">engineer.</span>
-				</h3>
-				<h3>
-					I am a <span class="font-science text-3xl">researcher.</span>
-				</h3>
-			</div>
 		</Expandable>
 
 		<Expandable title={'what'}>

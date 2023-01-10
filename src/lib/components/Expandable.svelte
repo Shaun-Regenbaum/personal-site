@@ -8,7 +8,7 @@
 		on:click={() => {
 			expanded = !expanded;
 		}}
-		class="flex space-x-2 border-b-2 shadow p-2 rounded-t-lg font-aorell"
+		class="flex space-x-2 border-b-8 shadow p-2 rounded-t-lg font-aorell"
 	>
 		{#if !expanded}
 			<svg
@@ -36,7 +36,7 @@
 		<h1>{title}</h1>
 	</button>
 
-	<div hidden={!expanded} class=" border-l-2 border-b-2 w-fit font-bold text-sm p-6 shadow">
+	<div hidden={!expanded} class=" border-l-4 border-b-4 w-fit font-bold text-sm p-6 shadow">
 		<slot />
 	</div>
 </section>
