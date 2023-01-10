@@ -124,12 +124,6 @@
 	</div>
 {/if}
 
-{#if awaitedAnswer2}
-	<div class="w-fit bg-gray-200 border-black border-2 rounded mx-12 mt-12 p-4">
-		<p>{awaitedAnswer}</p>
-	</div>
-{/if}
-
 <br />
 <div class="w-fit bg-gray-200 border-black border-2 rounded mx-12 mt-12 p-4">
 	<p>Is there Rashi?</p>
