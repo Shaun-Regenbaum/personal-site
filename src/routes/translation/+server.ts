@@ -8,24 +8,26 @@ export async function POST({ request }: any) {
 	const body = await request.json();
 	const { aramaic, english, word } = body;
 	const id = uuid();
+	let ip = null;
 
 	try {
-		const ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
+		ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
 		console.log(ip);
-		hog.capture({
-			distinctId: id,
-			event: 'Translation Used',
-			properties: {
-				aramaic: aramaic,
-				english: english,
-				word: word,
-				ip: ip,
-				$current_url: 'https://shaunregenbaum.com/translation'
-			}
-		});
 	} catch (e) {
+		ip = 'unknown';
 		console.log(e);
 	}
+	hog.capture({
+		distinctId: id,
+		event: 'Translation Used',
+		properties: {
+			aramaic: aramaic,
+			english: english,
+			word: word,
+			ip: ip,
+			$current_url: 'https://shaunregenbaum.com/translation'
+		}
+	});
 
 	const translation = await createTranslation(aramaic, english, word, debug);
 	return json(translation);
