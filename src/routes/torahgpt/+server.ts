@@ -8,22 +8,14 @@ export async function POST({ request }: any) {
 	const debug: boolean = false;
 	const body = await request.json();
 	const { question } = body;
-
-	try {
-		const ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
-		console.log(ip);
-		hog.capture({
-			distinctId: id,
-			event: 'TorahGPT Used',
-			properties: {
-				question: question,
-				ip: ip,
-				$current_url: 'https://shaunregenbaum.com/torahgpt'
-			}
-		});
-	} catch (e) {
-		console.log(e);
-	}
+	hog.capture({
+		distinctId: id,
+		event: 'TorahGPT Used',
+		properties: {
+			question: question,
+			$current_url: 'https://shaunregenbaum.com/torahgpt'
+		}
+	});
 
 	try {
 		await db.connect();

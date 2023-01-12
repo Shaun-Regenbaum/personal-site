@@ -8,15 +8,7 @@ export async function POST({ request }: any) {
 	const body = await request.json();
 	const { aramaic, english, word } = body;
 	const id = uuid();
-	let ip = null;
 
-	try {
-		ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
-		console.log(ip);
-	} catch (e) {
-		ip = 'unknown';
-		console.log(e);
-	}
 	hog.capture({
 		distinctId: id,
 		event: 'Translation Used',
@@ -24,7 +16,6 @@ export async function POST({ request }: any) {
 			aramaic: aramaic,
 			english: english,
 			word: word,
-			ip: ip,
 			$current_url: 'https://shaunregenbaum.com/translation'
 		}
 	});
