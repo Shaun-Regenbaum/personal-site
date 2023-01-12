@@ -39,6 +39,7 @@
 		"ioredis": "^5.2.4",
 		"node-html-parser": "^6.1.4",
 		"openai": "^3.1.0",
+		"posthog-node": "^2.2.3",
 		"sanitize-html": "^2.8.0",
 		"uuid": "^9.0.0"
 	}
