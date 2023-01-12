@@ -36,7 +36,8 @@
 
 		<div class="w-fit h-fit mt-4 p-2  bg-gray-100 rounded-lg shadow-sm border-gray-300 border">
 			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
-				Please <span class="underline">do not</span> use this for any serious halachic questions.
+				Please <span class="underline">do not</span> use this for any serious halachic questions. There
+				is a lot of bias present and the model can be prompted to answer in different ways.
 			</p>
 			<div class="w-fit h-fit ml-3 my-3 py-1 px-2 rounded-xl bg-red-200 shadow-sm">
 				<p class="text-xs text-gray-800">
