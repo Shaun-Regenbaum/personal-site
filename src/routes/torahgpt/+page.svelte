@@ -61,7 +61,7 @@
 			</p>
 			<br />
 			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
-				This model is trained to output short answers, perferable one sentence long. If you want it
+				This model is trained to output short answers, perferably one sentence long. If you want it
 				to go in more depth, you must ask it to.
 			</p>
 			<br />
