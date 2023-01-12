@@ -102,12 +102,35 @@
 		<div class="flex">
 			<input
 				id="ref"
+				list="ref-choice"
 				name="ref"
 				type="text"
 				placeholder="Brachot"
 				bind:value={masechet}
 				class="inline w-[150px] ml-4 p-2 rounded-l-md border-gray-300 border-2 border-r-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
 			/>
+
+			<datalist id="ref-choice">
+				<option value="Brachot" /><option value="Shabbat" /><option value="Eruvin" /><option
+					value="Pesachim"
+				/><option value="Rosh_Hashanah" /><option value="Yoma" /><option value="Sukkah" /><option
+					value="Beitzah"
+				/><option value="Taanit" /><option value="Megillah" /><option value="Moed_Katan" /><option
+					value="Chagigah"
+				/><option value="Yevamot" /><option value="Ketubot" /><option value="Nedarim" /><option
+					value="Nazie"
+				/><option value="Sotah" /><option value="Gittin" /><option value="Kiddushin" /><option
+					value="Bava_Kamma"
+				/><option value="Bava_Metzia" /><option value="Bava_Batra" /><option
+					value="Sanhedrin"
+				/><option value="Makkot" /><option value="Shevuot" /><option value="Avodah_Zarah" /><option
+					value="Horayot"
+				/><option value="Zevachim" /><option value="Menachot" /><option value="Chullin" /><option
+					value="Bekhorot"
+				/><option value="Arakhin" /><option value="Temurah" /><option value="Keritot" /><option
+					value="Meilah"
+				/><option value="Tamid" /><option value="Niddah" /></datalist
+			>
 			<input
 				id="page"
 				name="page"
