@@ -58,6 +58,21 @@
 					class="underline underline-offset-2 text-blue-500">here</a
 				> to learn how.
 			</p>
+			<br />
+			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
+				This model is trained to output short answers, perferable one sentence long. If you want it
+				to go in more depth, you must ask it to.
+			</p>
+			<br />
+			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
+				Overtime, I will add more options to tweak how the model responds. The current bottleneck is
+				the limited number of examples I gave it to show it how it should answer.
+			</p>
+			<br />
+			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
+				So if you want it to act differently, message me with an example of how it ought to act and
+				I will add the capability. Simple as that.
+			</p>
 		</div>
 	</div>
 	<div class=" px-4 py-5 sm:px-6">
@@ -83,15 +98,13 @@
 				- "What does the Rambam say to do if the seventeenth of Marcheshvan has arrived and no rains
 				have yet descended?"
 			</li>
-			<li>
-				- "Do I have to replace my tzitzit if some of the string breaks at the loop connecting the
-				beged?"
-			</li>
-			<li>- "Please go in depth, why was there an added Bracha to the Amidah?"</li>
+			<li>- What is the Parsha of B'shalach about?</li>
+			<li>- Why did Moshe cross the river?</li>
 			<li>
 				- "According to the lenient opinion, do I have to replace my tzitzit if some of the string
 				breaks at the loop connecting the beged?"
 			</li>
+			<li>- "Please go in depth, why was there an added Bracha to the Amidah?"</li>
 		</ul>
 
 		<button
