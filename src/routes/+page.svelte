@@ -208,7 +208,7 @@
 			</section> -->
 		</div>
 
-		<div class="absolute bottom-4 flex flex-row justify-center items-center">
+		<div class="mb-10 flex flex-row justify-center items-center">
 			<p class=" pl-4 font-rainy text-2xl pb-10">
 				This site still a work in Progress and will be updated later...
 			</p>
