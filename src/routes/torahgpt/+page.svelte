@@ -45,7 +45,7 @@
 				</p>
 			</div>
 			<p class="ml-4 mb-3 text-sm max-w-sm font-medium text-gray-700">
-				We are actively working on improving the results and the ability to quote sources.
+				I am actively working on improving the results and the ability to quote sources.
 			</p>
 			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
 				If you don't know what this is, click <a
