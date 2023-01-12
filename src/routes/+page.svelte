@@ -3,7 +3,7 @@
 	import Expandable from '$lib/components/Expandable.svelte';
 </script>
 
-<div class="w-full h-screen bg-slate-500 text-white">
+<div class="w-full h-full bg-slate-500 text-white">
 	<main>
 		<section class="pl-12 pt-12">
 			<div
