@@ -7,7 +7,7 @@
 
 	const items: MenuItem[] = [
 		{ name: 'About Me', href: '/', index: 1 },
-		{ name: 'Writings', href: '/', index: 2 },
+		{ name: 'Writings', href: '/writings', index: 2 },
 		{ name: 'Projects', href: '/projects', index: 3 }
 	];
 
@@ -20,7 +20,7 @@
 		'text-md text-white border-white text-black-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium ';
 </script>
 
-<nav class="font-pixel bg-black pb-2">
+<nav class="font-pixel bg-slate-400 pb-2">
 	<div class="mx-auto max-w-7xl px-2">
 		<div class="relative flex h-16 items-center justify-between">
 			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
