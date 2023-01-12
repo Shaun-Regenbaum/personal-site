@@ -5,9 +5,9 @@
 	let chosenWord: string;
 	$: selected = 0;
 	let loading = false;
-	let side: string = 'a';
-	let page: number = 2;
-	let masechet: string = 'Brachot';
+	let side: string = 'b';
+	let page: number = 6;
+	let masechet: string = 'Yevamot';
 
 	export let form: any;
 	$: hebrew = form ? form.he : [];
