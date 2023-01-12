@@ -60,7 +60,7 @@
 		<h1 class="text-lg underline underline-offset-2">What else are you working on?</h1>
 		<p>
 			I am working on a lot of different things in my free time. But otherwise, I run a company I
-			started in college called 402 do research at Hebrew Universtiy.
+			started in college called 402 and do biology research at Hebrew Universtiy.
 		</p>
 
 		<br />
