@@ -9,7 +9,7 @@
 				This Project demonstrates an OSS prject that can create tzurat hadaf using native HTML and
 				CSS.
 			</p>
-			<a class="underline text-blue-400" href="/daf">Go.</a></Expandable
+			<a class="underline text-blue-400" href="https://demo.talmud.app/">Go.</a></Expandable
 		>
 		<Expandable title={'torahgpt'}>
 			<p>
