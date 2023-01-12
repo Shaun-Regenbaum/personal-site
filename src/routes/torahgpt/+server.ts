@@ -32,6 +32,16 @@ export async function POST({ request }: any) {
 
 	const text = await createCompletion(question);
 
+	hog.capture({
+		distinctId: id,
+		event: 'TorahGPT Answered',
+		properties: {
+			question: question,
+			$current_url: 'https://shaunregenbaum.com/torahgpt',
+			answer: text
+		}
+	});
+
 	console.log('event sent');
 	db.set(`answer:${id}`, text.slice(4, -1))
 		.then(() => {
