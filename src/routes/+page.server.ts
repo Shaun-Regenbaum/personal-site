@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 import { hog } from '$lib/db';
-export function load(): { request: any }) {
+export function load() {
 	const id = uuid();
 	hog.capture({
 		distinctId: id,
