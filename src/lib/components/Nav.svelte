@@ -30,7 +30,7 @@
 					on:click={() => {
 						menuShow = !menuShow;
 					}}
-					class="bg-gray-900 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+					class="bg-slate-600 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
 					aria-controls="mobile-menu"
 					aria-expanded="false"
 				>
