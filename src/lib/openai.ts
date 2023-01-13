@@ -65,8 +65,8 @@ export async function createCompletion(
 	const response = await openai.createCompletion({
 		model: 'text-davinci-003',
 		prompt: prompt + addition + text + '\nA: ',
-		max_tokens: 1500,
-		temperature: 0
+		max_tokens: 500,
+		temperature: 0.2
 	});
 	if (debug) console.log('Completion Created');
 	if (debug) console.log(response.data.choices[0].text);
@@ -93,8 +93,8 @@ export async function createTranslation(
 	const response = await openai.createCompletion({
 		model: 'text-davinci-003',
 		prompt: prompt,
-		max_tokens: 400,
-		temperature: 0.2
+		max_tokens: 150,
+		temperature: 0
 	});
 	if (debug) console.log('Completion Created');
 	if (debug) console.log(response.data.choices[0].text);
