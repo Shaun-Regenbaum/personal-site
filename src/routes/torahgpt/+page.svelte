@@ -74,6 +74,11 @@
 			</p>
 			<br />
 			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
+				This model does not know what today is and can't answer questions about recent events.
+				Sometimes it will try, but know the answer is almost guarenteed to be wrong.
+			</p>
+			<br />
+			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
 				Overtime, I will add more options to tweak how the model responds. The current bottleneck is
 				the limited number of examples I gave it to show it how it should answer.
 			</p>
