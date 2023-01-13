@@ -65,7 +65,7 @@ export async function createCompletion(
 	const response = await openai.createCompletion({
 		model: 'text-davinci-003',
 		prompt: prompt + addition + text + '\nA: ',
-		max_tokens: 500,
+		max_tokens: 800,
 		temperature: 0.2
 	});
 	if (debug) console.log('Completion Created');
