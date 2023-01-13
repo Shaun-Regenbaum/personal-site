@@ -28,7 +28,7 @@
 			<a class="underline text-blue-200" href="/rambam">Go -></a></Expandable
 		>
 	</main>
-	<p class="ml-4 text-lg absolute bottom-4">
+	<p class="ml-4 text-lg ">
 		Note: I have other projects all over the internet. These are only projects from 2023 and
 		onwards. Check my github for others.
 	</p>
