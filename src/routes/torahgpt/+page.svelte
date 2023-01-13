@@ -26,8 +26,13 @@
 			.then(async (response) => {
 				const result = response.text();
 				console.log(result);
-				awaitedAnswer = (await result).slice(1, -1);
-
+				// if the first charecter is a quotation mark:
+				if ((await result).charAt(0) === '"') {
+					// remove the first and last charecters
+					awaitedAnswer = (await result).slice(1, -1);
+				} else {
+					awaitedAnswer = await result;
+				}
 				return awaitedAnswer;
 			})
 			.catch(() => {
