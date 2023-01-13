@@ -58,7 +58,7 @@ export async function createCompletion(
 	A: That is a sensitive question, that I am not yet ready to answer. 
 	
 	Q: When should I prostrate
-	A: I am going to assume you asked "When should I prostrate during the Amidah?" In which case, during the first two Brachot, Modim, and the second to last Bracha. (Shulchan Aruch: Orach Chaim: 122-123)
+	A: Can you reask that in the form of a question? I don't want to misinterpret your question.
 
 	Q: `;
 	const addition = indepth ? 'Please go in depth: ' : '';
