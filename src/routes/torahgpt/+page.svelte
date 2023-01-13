@@ -1,9 +1,15 @@
 <script lang="ts">
 	import Answer from '$lib/components/Answer.svelte';
 	let text: string = '';
+	let indepth: boolean = false;
 	let answer: Promise<string> | undefined = undefined;
 	let awaitedAnswer: string | undefined = undefined;
 	let hideExamples = true;
+
+	const onState =
+		'translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out';
+	const offState =
+		'translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out';
 
 	async function getCompletion() {
 		console.log('asking...');
@@ -13,13 +19,15 @@
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
-				question: text
+				question: text,
+				indepth: indepth
 			})
 		})
 			.then(async (response) => {
 				const result = response.text();
 				console.log(result);
-				awaitedAnswer = (await result).slice(5, -1);
+				awaitedAnswer = (await result).slice(1, -1);
+
 				return awaitedAnswer;
 			})
 			.catch(() => {
@@ -86,6 +94,7 @@
 			placeholder="What does the Rambam say to do if the seventeenth of Marcheshvan has arrived and no rains have yet descended?"
 			class="block min-w-[300px] p-3 border-gray-300 border hover:bg-gray-50 focus:bg-gray-50 rounded-md shadow-sm sm:text-sm"
 		/>
+
 		<button
 			class=" my-1 text-xs"
 			on:click={() => {
@@ -95,21 +104,42 @@
 			Click <span>here</span> for some examples.
 		</button>
 		<ul hidden={hideExamples} class="ml-2 text-xs">
-			<li>
-				- "What does the Rambam say to do if the seventeenth of Marcheshvan has arrived and no rains
-				have yet descended?"
-			</li>
+			<li>- How long should I wait between eating meat and milk?</li>
 			<li>- What is the Parsha of B'shalach about?</li>
-			<li>- Why did Moshe cross the river?</li>
 			<li>
+				- What does the Rambam say to do if the seventeenth of Marcheshvan has arrived and no rains
+				have yet descended?
+			</li>
+			<li>- Why did Moshe cross the sea?</li>
+			<!-- <li>
 				- "According to the lenient opinion, do I have to replace my tzitzit if some of the string
 				breaks at the loop connecting the beged?"
-			</li>
-			<li>- "Please go in depth, why was there an added Bracha to the Amidah?"</li>
+			</li> -->
+			<li>- Why was there an added Bracha to the Amidah?</li>
 		</ul>
+		<div />
+		<label for="switch" class="inline mr-2 text-sm font-medium text-gray-700"
+			>Toggle to go in depth:</label
+		>
+		<button
+			type="button"
+			class={indepth
+				? 'bg-green-500 relative align-middle inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2'
+				: 'bg-gray-200  relative align-middle inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2'}
+			role="switch"
+			aria-checked="false"
+			on:click={() => {
+				console.log('clicked');
+				indepth = !indepth;
+			}}
+		>
+			<span class="sr-only">Use setting</span>
+			<!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
+			<span aria-hidden="true" class={indepth ? onState : offState} />
+		</button>
 
 		<button
-			class="block mt-2 px-4 py-2 text-sm font-medium items-center rounded-md border border-gray-300 bg-white text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+			class="block mt-2 px-4 py-2 text-sm font-medium items-center rounded-md border border-gray-300 bg-white text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
 			on:click={() => {
 				answer = getCompletion();
 			}}>Ask</button

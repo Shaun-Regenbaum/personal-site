@@ -7,16 +7,7 @@ export async function POST({ request }: any) {
 
 	const debug: boolean = false;
 	const body = await request.json();
-	const { question } = body;
-	hog.capture({
-		distinctId: id,
-		event: 'TorahGPT Used',
-		properties: {
-			question: question,
-			$current_url: 'https://shaunregenbaum.com/torahgpt'
-		}
-	});
-
+	const { question, indepth } = body;
 	try {
 		await db.connect();
 	} catch (e) {
@@ -30,13 +21,14 @@ export async function POST({ request }: any) {
 			if (debug) console.log('Failure to Store Question');
 		});
 
-	const text = await createCompletion(question);
+	const text = await createCompletion(question, indepth);
 
 	hog.capture({
 		distinctId: id,
 		event: 'TorahGPT Answered',
 		properties: {
 			question: question,
+			depth: indepth,
 			$current_url: 'https://shaunregenbaum.com/torahgpt',
 			answer: text
 		}
