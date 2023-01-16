@@ -128,4 +128,7 @@
 			>
 		</div>
 	</form>
+	{#each $text as line, i}
+		<p class="mt-4">{line}</p>
+	{/each}
 </div>

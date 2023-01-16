@@ -20,6 +20,7 @@
 		"@sveltejs/kit": "^1.0.0",
 		"@types/node": "^18.11.15",
 		"@types/sanitize-html": "^2.6.2",
+		"@types/uuid": "^9.0.0",
 		"autoprefixer": "^10.4.13",
 		"postcss": "^8.4.20",
 		"prettier": "^2.8.0",

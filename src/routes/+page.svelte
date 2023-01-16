@@ -3,7 +3,7 @@
 	import Expandable from '$lib/components/Expandable.svelte';
 </script>
 
-<div class="w-full h-full bg-slate-500 text-white">
+<div class="w-full h-[120%] bg-slate-500 text-white">
 	<main>
 		<section class="pl-12 pt-12">
 			<div
@@ -15,7 +15,7 @@
 				</h2>
 			</div>
 		</section>
-		<div class="flex flex-wrap">
+		<div class="flex flex-col flex-wrap">
 			<Expandable title={'who'}>
 				<div class="space-y-4">
 					<h3>
@@ -208,7 +208,7 @@
 			</section> -->
 		</div>
 
-		<div class="mb-10 flex flex-row justify-center items-center">
+		<div class="mt-10 flex flex-row justify-center items-center">
 			<p class=" pl-4 font-rainy text-2xl pb-10">
 				This site still a work in Progress and will be updated later...
 			</p>
