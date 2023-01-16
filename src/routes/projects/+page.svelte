@@ -27,6 +27,13 @@
 			<p>This projects demonstrates single word translation for the Mishneh Torah</p>
 			<a class="underline text-blue-200" href="/rambam">Go -></a></Expandable
 		>
+		<Expandable title={'daf explainer'}>
+			<p>
+				This project demonstrates the ability for LLMs to suffecientely explain the logic of a given
+				daf. Currentely WIP.
+			</p>
+			<a class="underline text-blue-200" href="">Go -></a></Expandable
+		>
 	</main>
 	<p class="ml-4 mt-10 text-lg ">
 		Note: I have other projects all over the internet. These are only projects from 2023 and

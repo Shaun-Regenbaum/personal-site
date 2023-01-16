@@ -123,10 +123,11 @@
 						<span class="font-threeam">Business</span> in high school.
 					</p>
 					<p class="align-bottom">
-						Worked in fields ranging from <Abbr abbr={'ED'} expanded={'Embedded Systems'} /> to <Abbr
-							abbr={'ML'}
-							expanded={'Machine Learning'}
-						/>.
+						Worked in fields ranging from <Abbr
+							abbr={'ED'}
+							expanded={'Embedded Systems'}
+							style2={true}
+						/> to <Abbr abbr={'ML'} expanded={'Machine Learning'} style2={true} />.
 					</p>
 					<p>
 						Founded{' '}

@@ -2,7 +2,9 @@
 	export let abbr: string;
 	export let expanded: string;
 	export let link: string | undefined = undefined;
+	export let style2: boolean = false;
 	let hideExpanded: boolean = true;
+	
 </script>
 
 <span
@@ -11,20 +13,10 @@
 			hideExpanded = !hideExpanded;
 		}}
 		class="inline border-b-2 border-dashed hover:bg-gray-100"
-		>{abbr}<span
-			hidden={!hideExpanded}
-			class="text-xs text-gray-600 align-super">{'(?)'}</span
-		>
-		<span
-			hidden={hideExpanded}
-			class={'text-blue-400 '}>{' (' + expanded + ') '}</span
-		>
+		>{abbr}<span hidden={!hideExpanded} class="text-xs text-gray-600 align-super">{'(?)'}</span>
+		<span hidden={hideExpanded} class={style2 ? '' : 'text-blue-400 '}>{' (' + expanded + ') '}</span>
 	</button>{#if link}
-		<a
-			hidden={hideExpanded}
-			href={link}
-			class="text-xs text-blue-500 align-super"
-		>
+		<a hidden={hideExpanded} href={link} class="text-xs text-blue-500 align-super">
 			{' ' + '|#|'}
 		</a>
 	{/if}
