@@ -16,6 +16,10 @@ module.exports = {
 				Vilna: ['Vilna', 'bold'],
 				Rashi: 'Rashi',
 				metropolis: 'Metropolis'
+			},
+			backgroundImage: {
+				'noise': "url('/img/hero-pattern.svg')",
+				'footer-texture': "url('/img/footer-texture.png')"
 			}
 		}
 	},
