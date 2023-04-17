@@ -1,5 +1,5 @@
 <script>
-	import '../../app.css';
+	import '../app.css';
 </script>
 
 <main class="h-screen w-full pl-12 pr-4 pt-12 font-coolvetica tracking-wide text-blue-50 text-3xl">
