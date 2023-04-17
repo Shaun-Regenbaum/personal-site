@@ -3,7 +3,7 @@
 	import Expandable from '$lib/components/Expandable.svelte';
 </script>
 
-<div class=" bg-slate-500 h-screen text-white">
+<div class=" text-white">
 	<main>
 		<Expandable title={'daf'}>
 			<p>

@@ -166,7 +166,7 @@
 					</span>
 					<br />
 					<p>
-						Doing a Masters at <span class="font-science text-lg">Hebrew University</span>.
+						Doing a MSc at <span class="font-science text-lg">Hebrew University</span>.
 					</p>
 				</div>
 				<!-- <div class="py-3">{' '}</div> -->
@@ -204,7 +204,7 @@
 						<span class="font-science text-lg">Science</span>.
 					</p>
 					<p>
-						I worked on <span class="font-threeam">Cultivated Meat</span> and{' '}
+						I've worked on <span class="font-threeam">Cultivated Meat</span> and{' '}
 						<span class="font-threeam">Tissue-on-a-chip</span> tech at the
 						<a class="underline text-green-800" href="https://www.nahmias-lab.com"> Nahmias Lab </a>
 						at <span class="font-science text-lg">HUJI.</span>
@@ -304,7 +304,7 @@
 						<MinimizeIcon />
 					{/if}
 				</div>
-				<span class="text-xs text-slate-500 mt-0.5 pl-1 font-bold">Entrepreneurship?</span>
+				<span class="text-xs text-slate-500 mt-0.5 pl-1 font-bold">???</span>
 			</button>
 		</div>
 		{#if !minimized}
