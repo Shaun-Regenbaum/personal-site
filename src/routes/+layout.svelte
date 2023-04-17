@@ -1,7 +1,10 @@
 <script>
 	import '../app.css';
-	import Nav from '$lib/components/Nav.svelte';
+	import Background from '$lib/components/containers/Background.svelte';
+	import SideBar from '$lib/components/containers/SideBar.svelte';
 </script>
 
-<Nav selected={1} menuShow={false} />
-<slot />
+<Background>
+	<SideBar />
+	<slot />
+</Background>

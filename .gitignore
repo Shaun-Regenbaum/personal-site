@@ -19,3 +19,4 @@ vite.config.js.timestamp-*
 .test-tmp
 symlink-from
 pnpm-lock.yaml
+src/lib/components/containers/SideBar.svelte
