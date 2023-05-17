@@ -6,5 +6,7 @@
 
 <Background>
 	<SideBar />
-	<slot />
+	<div class="ml-8">
+		<slot />
+	</div>
 </Background>

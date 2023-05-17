@@ -41,7 +41,7 @@
 	}
 </script>
 
-<div class="font-light overflow-hidden bg-white divide-y divide-gray-300 ">
+<div class="font-light overflow-hidden bg-white divide-y divide-gray-300 rounded-md bg-opacity-90">
 	<div class="p-4 sm:px-6">
 		<h1 class="text-3xl leading-6 text-gray-900">
 			This is a <span class="font-bold">demo</span>.

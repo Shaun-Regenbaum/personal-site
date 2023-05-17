@@ -4,7 +4,7 @@
 	export let tag = 'Note';
 </script>
 
-<div class="w-fit px-3 bg-red-200 rounded-2xl shadow">
+<div class="w-fit px-3 bg-red-200 rounded-xl shadow">
 	<span class="inline-block align-middle text-sm">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

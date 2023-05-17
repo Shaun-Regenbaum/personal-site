@@ -22,12 +22,12 @@
 						<MinimizeIcon />
 					{/if}
 				</div>
-				<span class="text-xs text-slate-500 mt-0.5 pl-1 font-bold">Whats My Name?</span>
+				<span class="text-xs text-slate-500 mt-0.5 pl-1">Whats My Name?</span>
 			</button>
 		</div>
 		{#if !minimized}
-			<div class="px-8 pt-4">
-				<h1 class="inline align-text-bottom font-pixel text-2xl sm:text-5xl">
+			<div class="px-8 pt-4 md:font-bold">
+				<h1 class="inline align-text-bottom text-2xl sm:text-5xl">
 					{' '}Shaun Regenbaum
 				</h1>
 			</div>
@@ -53,12 +53,12 @@
 			</button>
 		</div>
 		{#if !minimized}
-			<div class="px-8 py-4 space-y-4">
+			<div class="px-8 py-4 space-y-4 md:font-bold">
 				<h3>
-					I am a <span class="font-aorell text-3xl align-bottom">Jew.</span>
+					I am a <span class="font-science text-3xl">Jew.</span>
 				</h3>
 				<h3>
-					I am an <span class="font-threeam text-3xl">engineer.</span>
+					I am an <span class="font-science text-3xl">engineer.</span>
 				</h3>
 				<h3>
 					I am a <span class="font-science text-3xl">researcher.</span>
@@ -86,24 +86,24 @@
 			</button>
 		</div>
 		{#if !minimized}
-			<div class="px-8 py-6 space-y-4">
+			<div class="px-8 py-6 space-y-4 md:font-bold">
 				<h3>
-					My family hails from Johanessburg, South Africa.
-					<span
-						class="text-3xl align-middle bg-white border-double border-2 border-black px-2 mx-1 rounded-lg "
-						>{' '}🇿🇦</span
+					My family hails from <span class="font-science text-lg">Johanessburg, South Africa.</span>
+					<span class="text-3xl px-2 mx-1 rounded-lg border-double border-2 border-black ">
+						{' '}🇿🇦</span
 					>
 				</h3>
 
 				<h3>
-					Grew up as a First Gen. American in Atlanta, Georgia.<span
-						class="text-3xl align-middle bg-white pr-2 mx-1 rounded-lg border-double border-2 border-black "
+					Grew up as a First Generation American in <span class="font-science text-lg"
+						>Atlanta, Georgia.</span
+					><span class="text-3xl pr-2 mx-1 rounded-lg border-double border-2 border-black "
 						>{' '}🇺🇸</span
 					>
 				</h3>
 				<h3>
-					Immigrated and now living in Jerusalem, Israel.<span
-						class="text-3xl align-middle bg-white pr-2 mx-1 rounded-lg border-double border-2 border-black "
+					Immigrated and now living in <span class="font-science text-lg">Jerusalem, Israel.</span
+					><span class="text-3xl pr-2 mx-1 rounded-lg border-double border-2 border-black "
 						>{' '}🇮🇱</span
 					>
 				</h3>
@@ -130,7 +130,7 @@
 			</button>
 		</div>
 		{#if !minimized}
-			<div class="px-8 py-6">
+			<div class="px-8 py-6 md:font-bold">
 				<p>
 					Recepient of Zell-Miller Scholarship, a full-ride to <span class="font-science text-lg"
 						>Georgia Tech</span
@@ -193,7 +193,7 @@
 			</button>
 		</div>
 		{#if !minimized}
-			<div class="px-8 py-6">
+			<div class="px-8 py-6 md:font-bold">
 				<div class="space-y-4">
 					<p>
 						My first scientific <a
@@ -204,8 +204,8 @@
 						<span class="font-science text-lg">Science</span>.
 					</p>
 					<p>
-						I've worked on <span class="font-threeam">Cultivated Meat</span> and{' '}
-						<span class="font-threeam">Tissue-on-a-chip</span> tech at the
+						I've worked on <span class="font-science text-lg">Cultivated Meat</span> and{' '}
+						<span class="font-science text-lg">Tissue-on-a-chip</span> tech at the
 						<a class="underline text-green-800" href="https://www.nahmias-lab.com"> Nahmias Lab </a>
 						at <span class="font-science text-lg">HUJI.</span>
 					</p>
@@ -236,10 +236,10 @@
 			</button>
 		</div>
 		{#if !minimized}
-			<div class="px-8 p-8 space-y-4">
+			<div class="px-8 p-8 space-y-4 md:font-bold">
 				<p class="align-bottom">
 					Sold my first
-					<span class="font-threeam">Business</span> in high school.
+					<span class="font-science text-lg">Business</span> in high school.
 				</p>
 				<p class="align-bottom">
 					Worked in fields ranging from <Abbr
@@ -251,7 +251,7 @@
 				<p>
 					Founded{' '}
 					<span
-						class="align-text-middle bg-slate-200 p-1 pt-2 ml-1 rounded-lg border-2 border-slate-600"
+						class="align-text-middle bg-slate-200 p-1 ml-1 rounded-lg border-2 border-slate-600"
 					>
 						<svg
 							viewBox="0 0 127 51"
@@ -309,7 +309,7 @@
 		</div>
 		{#if !minimized}
 			<div class="mt-10 flex flex-row justify-center items-center">
-				<p class=" pl-4 font-rainy text-2xl pb-10">This site still a WIP...</p>
+				<p class=" pl-4 font-threeam text-2xl pb-10">This site still a WIP...</p>
 			</div>
 		{/if}
 		<ComponentBackground />

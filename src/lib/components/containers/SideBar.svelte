@@ -3,10 +3,10 @@
 	import MaximizeIcon from '$lib/components/icons/MaximizeIcon.svelte';
 	import ComponentBackground from './ComponentBackground.svelte';
 
-	let minimized = false;
+	let minimized = true;
 </script>
 
-<div class="sidebar bg-white bg-opacity-90 z-50 rounded-l-sm flex flex-row">
+<div class="sidebar bg-white bg-opacity-100 z-50 rounded-r-sm flex flex-row">
 	<button
 		on:click={() => {
 			minimized = !minimized;
@@ -25,18 +25,38 @@
 	</button>
 	<div class="flex flex-col">
 		{#if !minimized}
-			<ul class="px-2 spacing-y-2 font-serif">
+			<ul class="px-2 mr-8 sm:mr-4 spacing-y-2 font-serif">
 				<li>
-					<a href="/">Home</a>
+					<a
+						href="/"
+						on:click={() => {
+							minimized = !minimized;
+						}}>Home</a
+					>
 				</li>
 				<li>
-					<a href="/about">About</a>
+					<a
+						href="/about"
+						on:click={() => {
+							minimized = !minimized;
+						}}>About</a
+					>
 				</li>
 				<li>
-					<a href="/writings">Blog</a>
+					<a
+						href="/writings"
+						on:click={() => {
+							minimized = !minimized;
+						}}>Blog</a
+					>
 				</li>
 				<li>
-					<a href="/projects">Projects</a>
+					<a
+						href="/projects"
+						on:click={() => {
+							minimized = !minimized;
+						}}>Projects</a
+					>
 				</li>
 			</ul>
 		{/if}
@@ -48,7 +68,7 @@
 	.sidebar {
 		position: fixed;
 		top: 0;
-		right: 0;
+		left: 0;
 
 		height: 100vh;
 

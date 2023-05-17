@@ -4,7 +4,7 @@
 	import Note from '$lib/components/Note.svelte';
 </script>
 
-<div class="font-light overflow-hidden bg-white divide-y divide-gray-300 ">
+<div class="font-light overflow-hidden bg-white divide-y divide-gray-300 rounded-md bg-opacity-90">
 	<div class="p-4 sm:px-6">
 		<h1 class="text-lg underline underline-offset-2">What is this?</h1>
 		<p>
