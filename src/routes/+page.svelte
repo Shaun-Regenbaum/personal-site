@@ -8,8 +8,10 @@
 					{' '}Shaun Regenbaum
 				</h1>
 	</section>
-	<div class="mt-10 flex flex-row justify-center items-center">
-		<p class=" pl-4 font-threeam text-2xl pb-10">This site still a WIP...</p>
+	<div class="border-2 bg-white w-full rounded-sm border-black mt-40 mx-auto text-center">
+		<p class="font-threeam text-2xl py-10">Localhost::5420</p>
+		<p class=" font-threeam text-2xl pb-10">This site is under construction...</p>
+		<p class=" font-threeam text-2xl pb-10">But, Feel free to explore.</p>
 	</div>
 
 </main>
