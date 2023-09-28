@@ -56,7 +56,7 @@
 		<div class="py-3">{' '}</div>
 		<p>
 			Co-founded the first funded student-led <a
-				class="underline text-green-800"
+				class="underline text-orange-500 underline-offset-2 hover:bg-white"
 				href="https://dilac.iac.gatech.edu/node/66"
 			>
 				lab
@@ -72,7 +72,7 @@
 					Lab,{' '}
 					<span class="font-sans align-bottom">
 						with <a
-							class="underline text-green-800"
+							class="underline underline-offset-2 hover:bg-white text-orange-500"
 							href="			https://github.com/Jutanium
 									"
 						>
@@ -95,7 +95,8 @@
 			</p>
 			<p>
 				My first scientific <a
-					class="underline text-green-800"
+				class="underline text-orange-500 underline-offset-2 hover:bg-white"
+
 					href="https://pubmed.ncbi.nlm.nih.gov/33627489/">paper</a
 				>
 				was published in{' '}
@@ -104,7 +105,8 @@
 			<p>
 				I've worked on <span class="font-science text-lg">Cultivated Meat</span> and{' '}
 				<span class="font-science text-lg">Tissue-on-a-chip</span> tech at the
-				<a class="underline text-green-800" href="https://www.nahmias-lab.com"> Nahmias Lab </a>
+				<a 				class="underline text-orange-500 underline-offset-2 hover:bg-white"
+				href="https://www.nahmias-lab.com"> Nahmias Lab </a>
 				at <span class="font-science text-lg">HUJI.</span>
 			</p>
 			<p>
