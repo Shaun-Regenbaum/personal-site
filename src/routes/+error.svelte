@@ -2,7 +2,7 @@
 	import '../app.css';
 </script>
 
-<main class="h-screen w-full pl-12 pr-4 pt-12 font-coolvetica tracking-wide text-blue-50 text-3xl">
+<main class="h-screen w-full pl-12 pr-4 pt-12 font-coolvetica tracking-wide text-black text-3xl">
 	<h1 class="mx-auto">
 		<span class="font-pixel">404 </span>
 		<span class="text-sm"> Page Not Found</span>

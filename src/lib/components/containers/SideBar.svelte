@@ -11,10 +11,10 @@
 		on:click={() => {
 			minimized = !minimized;
 		}}
-		class="flex flex-col h-screen border-r-2 border-slate-400 border-opacity-70"
+		class="flex flex-col h-screen border-r-2 border-black"
 	>
 		<div class="px-1 rounded-t-lg">
-			<button class="h-4 w-4 stroke-slate-500">
+			<button class="h-4 w-4 stroke-black">
 				{#if minimized}
 					<MaximizeIcon />
 				{:else}
@@ -61,7 +61,6 @@
 			</ul>
 		{/if}
 	</div>
-	<ComponentBackground />
 </div>
 
 <style>
@@ -72,7 +71,7 @@
 
 		height: 100vh;
 
-		border-left: 1px solid #e0e0e0; /* Adjust the border color as needed */
+		border-left: 2px solid #000000; /* Adjust the border color as needed */
 		overflow-y: auto;
 	}
 </style>

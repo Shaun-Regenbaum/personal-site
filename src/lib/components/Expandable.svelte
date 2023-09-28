@@ -3,7 +3,7 @@
 	export let title: string = '';
 </script>
 
-<section class="pl-12 pt-12 min-w-[390px] font-metropolis font-bold text-lg">
+<section class="pl-12 pt-12 min-w-[390px] font-metropolis font-bold text-lg text-black">
 	<button
 		on:click={() => {
 			expanded = !expanded;
@@ -38,7 +38,7 @@
 
 	<div
 		hidden={!expanded}
-		class=" w-fit rounded-tr-xl rounded-b-md font-bold text-sm p-6 shadow-2xl"
+		class="font-bold text-sm p-6"
 	>
 		<slot />
 	</div>
