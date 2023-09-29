@@ -5,7 +5,7 @@
 
 <div class=" text-black">
 	<p class=" mt-2 text-lg font-metropolis font-bold">
-		Note: I have dozens of projects all over the internet. This a random subset that pertaining to my interest in Limud Torah.  
+		Note: I have dozens of projects all over the internet. This a random subset that pertain to my interest in Limud Torah.  
 	</p>
 	<main>
 		<Section title={'Daf Project'}>
