@@ -3,7 +3,6 @@
 	export let awaitedAnswer: string | undefined;
 	export let question: string;
 
-	$: console.log(answer);
 </script>
 
 {#if question}

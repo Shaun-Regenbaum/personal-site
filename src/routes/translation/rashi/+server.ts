@@ -12,7 +12,6 @@ export async function POST({ request }: any) {
 	if (!response.ok) {
 		throw new Error(response.statusText);
 	}
-	console.log('Finished');
 	const data = await response.json();
 	return json(data);
 }

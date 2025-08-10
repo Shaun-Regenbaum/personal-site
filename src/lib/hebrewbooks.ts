@@ -45,12 +45,10 @@ export async function getHtml(masechet: string, daf: number, page: number): Prom
 	)}&daf=${daf}${secondPage}&format=text`;
 	// fetch the html from the url
 	const response = await fetch(constructedUrl);
-	console.log(await response.clone().text());
-	let body = parse(await response.clone().text(), options);
+	let body = parse(await response.text(), options);
 	const shastext2 = body.querySelector('.shastext2')?.toString();
 	const shastext3 = body.querySelector('.shastext3')?.toString();
 	const shastext4 = body.querySelector('.shastext4')?.toString();
-	// console.log(shastext3);
 
 	const clean = sanitizeHtml(await response.text(), {
 		allowedTags: ['div', 'span', 'strong', 'fieldset'],
