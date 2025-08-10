@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Answer from '$lib/components/Answer.svelte';
+	import MaintenanceBanner from '$lib/components/MaintenanceBanner.svelte';
+	import TerminalNavigation from '$lib/components/TerminalNavigation.svelte';
 	let text: string = '';
 	let indepth: boolean = false;
 	let answer: Promise<string> | undefined = undefined;
@@ -39,123 +41,189 @@
 				throw new Error(text);
 			});
 	}
+
+	const isMaintenanceMode = true;
 </script>
 
-<div class="font-light overflow-hidden bg-white divide-y divide-gray-300 rounded-md bg-opacity-90">
-	<div class="p-4 sm:px-6">
-		<h1 class="text-3xl leading-6 text-gray-900">
-			This is a <span class="font-bold">demo</span>.
-		</h1>
-
-		<div class="w-fit h-fit mt-4 p-2  bg-gray-100 rounded-lg shadow-sm border-gray-300 border">
-			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
-				Please <span class="underline">do not</span> use this for any serious halachic questions. There
-				is a lot of bias present and the model can be prompted to answer in different ways.
-			</p>
-			<div class="w-fit h-fit ml-3 my-3 py-1 px-2 rounded-xl bg-red-200 shadow-sm">
-				<p class="text-xs text-gray-800">
-					The current tested accuracy is <span class="text-red-400">below 45%.</span>
-				</p>
+<div class="min-h-screen bg-black text-green-400 font-mono">
+	<div class="h-screen flex flex-col">
+		<!-- Terminal Border -->
+		<div class="border-2 border-green-400 flex-grow flex flex-col">
+			<!-- Terminal Header -->
+			<div class="flex items-center px-4 py-2 border-b border-green-400">
+				<span class="text-green-300">Terminal - TorahGPT</span>
+				<span class="ml-auto text-green-300 text-xs">SHAUN-OS v1.0</span>
 			</div>
-			<p class="ml-4 mb-3 text-sm max-w-sm font-medium text-gray-700">
-				I am actively working on improving the results and the ability to quote sources.
-			</p>
-			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
-				If you don't know what this is, click <a
-					href="/torahgpt/faq?what_is_this"
-					class="underline underline-offset-2 text-blue-500">here</a
-				> to find out more.
-			</p>
-			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
-				If you want to contribute, click <a
-					href="/torahgpt/faq?contribute"
-					class="underline underline-offset-2 text-blue-500">here</a
-				> to learn how.
-			</p>
-			<br />
-			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
-				This model is trained to output short answers, perferably one sentence long. If you want it
-				to go in more depth, you must ask it to.
-			</p>
-			<br />
-			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
-				This model does not know what today is and can't answer questions about recent events.
-				Sometimes it will try, but know the answer is almost guarenteed to be wrong.
-			</p>
-			<br />
-			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
-				Overtime, I will add more options to tweak how the model responds. The current bottleneck is
-				the limited number of examples I gave it to show it how it should answer.
-			</p>
-			<br />
-			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
-				So if you want it to act differently, message me with an example of how it ought to act and
-				I will add the capability. Simple as that.
-			</p>
+			
+			<!-- Terminal Content -->
+			<div class="flex-grow p-6 overflow-y-auto">
+				{#if isMaintenanceMode}
+					<div class="mb-6 p-4 bg-yellow-900 bg-opacity-30 border border-yellow-400 rounded">
+						<div class="flex items-start">
+							<span class="text-yellow-400 mr-2">⚠</span>
+							<div class="text-yellow-300">
+								<div class="font-bold">TorahGPT - Maintenance Mode</div>
+								<div class="text-sm mt-1">Interactive features temporarily disabled. Expected restoration: Coming soon</div>
+							</div>
+						</div>
+					</div>
+				{/if}
+
+				<!-- Command prompt -->
+				<div class="mb-4">
+					<span class="text-green-300">> ./torahgpt --demo --experimental</span>
+				</div>
+
+				<!-- Warning Box -->
+				<div class="mb-6 p-4 bg-red-900 bg-opacity-30 border border-red-400 rounded">
+					<div class="text-red-300 text-sm space-y-2">
+						<div class="text-red-400 font-bold">⚠ EXPERIMENTAL - DO NOT USE FOR HALACHIC DECISIONS ⚠</div>
+						<div>• Current accuracy: Below 45% - High bias risk</div>
+						<div>• Model can be prompted to give different answers</div>
+						<div>• Actively working on improvements and source citation</div>
+						<div>• Designed for short answers - ask for depth if needed</div>
+						<div>• No knowledge of current events</div>
+					</div>
+				</div>
+
+				<!-- Info Links -->
+				<div class="mb-6 text-sm text-green-300 space-y-1">
+					<div>ADDITIONAL INFO:</div>
+					<div class="ml-4">• <a href="/torahgpt/faq?what_is_this" class="text-cyan-400 hover:text-cyan-300 underline">What is this?</a></div>
+					<div class="ml-4">• <a href="/torahgpt/faq?contribute" class="text-cyan-400 hover:text-cyan-300 underline">How to contribute</a></div>
+				</div>
+				<!-- Question Input -->
+				<div class="mb-4">
+					<div class="text-green-400 mb-2">ASK A QUESTION TO TORAHGPT:</div>
+					<div class="flex items-start">
+						<span class="text-green-300 mr-2 mt-2">></span>
+						<div class="flex-1">
+							<input
+								name="question"
+								bind:value={text}
+								placeholder="What does the Rambam say about rain on the 17th of Marcheshvan?"
+								class="w-full bg-black border border-green-400 text-green-400 p-3 rounded font-mono focus:outline-none focus:border-green-300 {isMaintenanceMode ? 'opacity-50 cursor-not-allowed' : ''}"
+								disabled={isMaintenanceMode}
+							/>
+						</div>
+					</div>
+				</div>
+
+				<!-- Examples Toggle -->
+				<div class="mb-4">
+					<button
+						class="text-sm text-cyan-400 hover:text-cyan-300 underline"
+						on:click={() => {
+							hideExamples = !hideExamples;
+						}}
+					>
+						{hideExamples ? 'Show' : 'Hide'} example questions
+					</button>
+					{#if !hideExamples}
+						<div class="mt-2 ml-4 text-sm text-green-300 space-y-1">
+							<div>• How long should I wait between eating meat and milk?</div>
+							<div>• What is the Parsha of B'shalach about?</div>
+							<div>• What does the Rambam say about rain on the 17th of Marcheshvan?</div>
+							<div>• Why did Moshe cross the sea?</div>
+							<div>• Why was there an added Bracha to the Amidah?</div>
+						</div>
+					{/if}
+				</div>
+
+				<!-- Depth Toggle -->
+				<div class="mb-4 flex items-center">
+					<span class="text-green-400 mr-4">IN-DEPTH MODE:</span>
+					<button
+						type="button"
+						class={indepth && !isMaintenanceMode
+							? 'bg-green-400 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-green-400 transition-colors duration-200 ease-in-out'
+							: isMaintenanceMode 
+							? 'bg-gray-600 opacity-50 cursor-not-allowed relative inline-flex h-6 w-11 flex-shrink-0 rounded-full border-2 border-gray-600'
+							: 'bg-gray-600 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-gray-600 transition-colors duration-200 ease-in-out'}
+						role="switch"
+						disabled={isMaintenanceMode}
+						on:click={() => {
+							if (!isMaintenanceMode) {
+								indepth = !indepth;
+							}
+						}}
+					>
+						<span class="sr-only">Toggle in-depth mode</span>
+						<span 
+							aria-hidden="true" 
+							class={indepth && !isMaintenanceMode
+								? 'translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-black shadow ring-0 transition duration-200 ease-in-out'
+								: 'translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-gray-300 shadow ring-0 transition duration-200 ease-in-out'}
+						/>
+					</button>
+					<span class="ml-2 text-green-300 text-sm">{indepth ? 'ON' : 'OFF'}</span>
+				</div>
+
+				<!-- Ask Button -->
+				<div class="mb-6">
+					<button
+						class="px-6 py-2 border-2 border-green-400 text-green-400 rounded font-mono hover:bg-green-400 hover:text-black transition-colors {isMaintenanceMode ? 'opacity-50 cursor-not-allowed hover:bg-transparent hover:text-green-400' : ''}"
+						disabled={isMaintenanceMode}
+						on:click={() => {
+							if (!isMaintenanceMode) {
+								answer = getCompletion();
+							}
+						}}
+					>
+						ASK TORAHGPT
+					</button>
+				</div>
+
+				<!-- Answer Display -->
+				<div class="mb-4">
+					<Answer {answer} {awaitedAnswer} bind:question={text} />
+				</div>
+
+				<!-- Navigation -->
+				<TerminalNavigation currentPage="torahgpt" />
+			</div>
+			
+			<!-- Status Bar -->
+			<div class="px-4 py-1 text-xs text-green-300 flex justify-between border-t border-green-400">
+				<span>TORAHGPT</span>
+				<span>{isMaintenanceMode ? 'MAINTENANCE' : 'READY'}</span>
+				<span>{new Date().toLocaleTimeString()}</span>
+			</div>
 		</div>
 	</div>
-	<div class=" px-4 py-5 sm:px-6">
-		<label for="question" class="block  text-sm font-medium text-gray-700"
-			>Ask a Question to TorahGPT:</label
-		>
-		<input
-			name="question"
-			bind:value={text}
-			placeholder="What does the Rambam say to do if the seventeenth of Marcheshvan has arrived and no rains have yet descended?"
-			class="block min-w-[300px] p-3 border-gray-300 border hover:bg-gray-50 focus:bg-gray-50 rounded-md shadow-sm sm:text-sm"
-		/>
-
-		<button
-			class=" my-1 text-xs"
-			on:click={() => {
-				hideExamples = !hideExamples;
-			}}
-		>
-			Click <span>here</span> for some examples.
-		</button>
-		<ul hidden={hideExamples} class="ml-2 text-xs">
-			<li>- How long should I wait between eating meat and milk?</li>
-			<li>- What is the Parsha of B'shalach about?</li>
-			<li>
-				- What does the Rambam say to do if the seventeenth of Marcheshvan has arrived and no rains
-				have yet descended?
-			</li>
-			<li>- Why did Moshe cross the sea?</li>
-			<!-- <li>
-				- "According to the lenient opinion, do I have to replace my tzitzit if some of the string
-				breaks at the loop connecting the beged?"
-			</li> -->
-			<li>- Why was there an added Bracha to the Amidah?</li>
-		</ul>
-		<div />
-		<label for="switch" class="inline mr-2 text-sm font-medium text-gray-700"
-			>Toggle to go in depth:</label
-		>
-		<button
-			type="button"
-			class={indepth
-				? 'bg-green-500 relative align-middle inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2'
-				: 'bg-gray-200  relative align-middle inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2'}
-			role="switch"
-			aria-checked="false"
-			on:click={() => {
-				console.log('clicked');
-				indepth = !indepth;
-			}}
-		>
-			<span class="sr-only">Use setting</span>
-			<!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
-			<span aria-hidden="true" class={indepth ? onState : offState} />
-		</button>
-
-		<button
-			class="block mt-2 px-4 py-2 text-sm font-medium items-center rounded-md border border-gray-300 bg-white text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-			on:click={() => {
-				answer = getCompletion();
-			}}>Ask</button
-		>
-	</div>
-	<div class="px-4 py-5 sm:p-6">
-		<Answer {answer} {awaitedAnswer} bind:question={text} />
-	</div>
 </div>
+
+<style>
+	/* Terminal glow effect */
+	:global(.text-green-400) {
+		text-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+	}
+	
+	:global(.text-green-300) {
+		text-shadow: 0 0 5px rgba(134, 239, 172, 0.5);
+	}
+	
+	:global(.text-yellow-400) {
+		text-shadow: 0 0 5px rgba(250, 204, 21, 0.5);
+	}
+	
+	:global(.text-yellow-300) {
+		text-shadow: 0 0 5px rgba(253, 224, 71, 0.5);
+	}
+	
+	:global(.text-red-400) {
+		text-shadow: 0 0 5px rgba(248, 113, 113, 0.5);
+	}
+	
+	:global(.text-red-300) {
+		text-shadow: 0 0 5px rgba(252, 165, 165, 0.5);
+	}
+	
+	:global(.text-cyan-400) {
+		text-shadow: 0 0 5px rgba(34, 211, 238, 0.5);
+	}
+	
+	:global(.text-cyan-300) {
+		text-shadow: 0 0 5px rgba(103, 232, 249, 0.5);
+	}
+</style>

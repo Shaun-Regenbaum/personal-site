@@ -1,5 +1,7 @@
 <script lang="ts">
 	import WordSelect from '$lib/components/WordSelect.svelte';
+	import MaintenanceBanner from '$lib/components/MaintenanceBanner.svelte';
+	import TerminalNavigation from '$lib/components/TerminalNavigation.svelte';
 	let awaitedAnswer: any;
 	let awaitedAnswer2: any;
 	let chosenWord: string;
@@ -61,146 +63,185 @@
 				throw new Error(chosenWord);
 			});
 	}
+
+	const isMaintenanceMode = true;
 </script>
 
-<div
-	class="font-light overflow-hidden bg-white divide-y pl-4 divide-gray-300 rounded-md bg-opacity-90"
->
-	<div class="p-4 sm:px-6">
-		<h1 class="text-3xl leading-6 text-gray-900">
-			This is a <span class="font-bold">demo</span>.
-		</h1>
-
-		<div class="w-fit h-fit mt-4 p-2  bg-gray-100 rounded-lg shadow-sm border-gray-300 border">
-			<p class="ml-4 text-sm max-w-sm font-medium text-gray-700">
-				There are bound to be errors in the translations.
-			</p>
-			<div class="w-fit h-fit ml-3 my-3 py-1 px-2 rounded-xl bg-green-400 shadow-sm">
-				<p class="text-xs text-gray-800">
-					The current tested accuracy is <span class="text-green-800">relatively high</span>
-				</p>
+<div class="min-h-screen bg-black text-green-400 font-mono">
+	<div class="h-screen flex flex-col">
+		<!-- Terminal Border -->
+		<div class="border-2 border-green-400 flex-grow flex flex-col">
+			<!-- Terminal Header -->
+			<div class="flex items-center px-4 py-2 border-b border-green-400">
+				<span class="text-green-300">Terminal - Talmud Translator</span>
+				<span class="ml-auto text-green-300 text-xs">SHAUN-OS v1.0</span>
 			</div>
-			<p class="ml-4 mb-3 text-sm max-w-sm font-medium text-gray-700">
-				I am actively, as of Jan. 2023, working on improving the results.
-			</p>
-			<p class="ml-4 mb-3 text-sm max-w-sm font-medium text-gray-700">
-				The way it works is you first choose a page in the Gemarah, according to the English titles
-				based on Sefaria.
-			</p>
-			<p class="ml-4 mb-3 text-sm max-w-sm font-medium text-gray-700">
-				Then you click up through the sections to get to the part you want.
-			</p>
-			<p class="ml-4 mb-3 text-sm max-w-sm font-medium text-gray-700">
-				Then click a word and push the translate button.
-			</p>
-			<p class="ml-4 mb-3 text-sm max-w-sm font-medium text-gray-700">
-				I am planning on making this a better experience later once I polish things more.
-			</p>
+			
+			<!-- Terminal Content -->
+			<div class="flex-grow p-6 overflow-y-auto">
+				{#if isMaintenanceMode}
+					<div class="mb-6 p-4 bg-yellow-900 bg-opacity-30 border border-yellow-400 rounded">
+						<div class="flex items-start">
+							<span class="text-yellow-400 mr-2">⚠</span>
+							<div class="text-yellow-300">
+								<div class="font-bold">Talmud Translator - Maintenance Mode</div>
+								<div class="text-sm mt-1">Interactive features temporarily disabled. Expected restoration: Coming soon</div>
+							</div>
+						</div>
+					</div>
+				{/if}
+
+				<!-- Command prompt -->
+				<div class="mb-4">
+					<span class="text-green-300">> ./talmud-translator --demo</span>
+				</div>
+
+				<!-- Demo info -->
+				<div class="mb-6 text-sm text-green-300 space-y-2">
+					<div># Talmud Single Word Translation Tool</div>
+					<div># 90% accuracy Hebrew/Aramaic-to-English word translation for Gemarah</div>
+					<div># Status: Demo mode - accuracy relatively high</div>
+				</div>
+
+				<!-- Instructions -->
+				<div class="mb-6 text-sm text-green-400 space-y-1">
+					<div>USAGE INSTRUCTIONS:</div>
+					<div class="ml-4">1. Choose Masechet and Daf (page/side)</div>
+					<div class="ml-4">2. Navigate to specific section</div>
+					<div class="ml-4">3. Select word and execute translation</div>
+				</div>
+
+				<!-- Masechet Input -->
+				<div class="mb-4">
+					<form method="POST">
+						<div class="text-green-400 mb-2">MASECHET (TRACTATE):</div>
+						<div class="flex items-center space-x-2">
+							<span class="text-green-300 mr-2">></span>
+							<input
+								id="ref"
+								list="ref-choice"
+								name="ref"
+								type="text"
+								placeholder="Brachot"
+								bind:value={masechet}
+								class="bg-black border border-green-400 text-green-400 p-2 rounded font-mono w-32 focus:outline-none focus:border-green-300 {isMaintenanceMode ? 'opacity-50 cursor-not-allowed' : ''}"
+								disabled={isMaintenanceMode}
+							/>
+							<input
+								id="page"
+								name="page"
+								type="number"
+								placeholder="6"
+								bind:value={page}
+								class="bg-black border border-green-400 text-green-400 p-2 rounded font-mono w-16 focus:outline-none focus:border-green-300 {isMaintenanceMode ? 'opacity-50 cursor-not-allowed' : ''}"
+								disabled={isMaintenanceMode}
+							/>
+							<input
+								id="side"
+								name="side"
+								type="text"
+								placeholder="b"
+								bind:value={side}
+								class="bg-black border border-green-400 text-green-400 p-2 rounded font-mono w-12 focus:outline-none focus:border-green-300 {isMaintenanceMode ? 'opacity-50 cursor-not-allowed' : ''}"
+								disabled={isMaintenanceMode}
+							/>
+							<button
+								class="px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-black transition-colors font-mono {isMaintenanceMode ? 'opacity-50 cursor-not-allowed hover:bg-transparent hover:text-green-400' : ''}"
+								disabled={isMaintenanceMode}
+							>
+								GET TEXT
+							</button>
+						</div>
+						<datalist id="ref-choice">
+							<option value="Brachot" /><option value="Shabbat" /><option value="Eruvin" /><option value="Pesachim" />
+							<option value="Rosh_Hashanah" /><option value="Yoma" /><option value="Sukkah" /><option value="Beitzah" />
+							<option value="Taanit" /><option value="Megillah" /><option value="Moed_Katan" /><option value="Chagigah" />
+							<option value="Yevamot" /><option value="Ketubot" /><option value="Nedarim" /><option value="Nazir" />
+							<option value="Sotah" /><option value="Gittin" /><option value="Kiddushin" /><option value="Bava_Kamma" />
+							<option value="Bava_Metzia" /><option value="Bava_Batra" /><option value="Sanhedrin" /><option value="Makkot" />
+							<option value="Shevuot" /><option value="Avodah_Zarah" /><option value="Horayot" /><option value="Zevachim" />
+							<option value="Menachot" /><option value="Chullin" /><option value="Bekhorot" /><option value="Arakhin" />
+							<option value="Temurah" /><option value="Keritot" /><option value="Meilah" /><option value="Tamid" /><option value="Niddah" />
+						</datalist>
+					</form>
+				</div>
+
+				<!-- Section Selector -->
+				<div class="mb-4">
+					<div class="text-green-400 mb-2">CHOOSE SECTION:</div>
+					<div class="flex items-center">
+						<span class="text-green-300 mr-2">></span>
+						<input
+							type="number"
+							class="bg-black border border-green-400 text-green-400 p-2 rounded font-mono w-20 focus:outline-none focus:border-green-300 {isMaintenanceMode ? 'opacity-50 cursor-not-allowed' : ''}"
+							max={form ? form.text.length : 1}
+							bind:value={selected}
+							disabled={isMaintenanceMode}
+						/>
+					</div>
+				</div>
+
+				<!-- Word Select Component -->
+				<div class="mb-4">
+					<WordSelect sentences={hebrew} bind:word={chosenWord} bind:selected />
+				</div>
+
+				<!-- Translate Button -->
+				<div class="mb-4">
+					<button
+						on:click={() => {
+							if (!isMaintenanceMode) {
+								getTranslation();
+							}
+						}}
+						class="px-6 py-2 border-2 border-green-400 text-green-400 rounded font-mono hover:bg-green-400 hover:text-black transition-colors {isMaintenanceMode ? 'opacity-50 cursor-not-allowed hover:bg-transparent hover:text-green-400' : ''}"
+						disabled={isMaintenanceMode}
+					>
+						TRANSLATE
+					</button>
+				</div>
+
+				<!-- Output -->
+				{#if loading}
+					<div class="border border-green-400 rounded p-4 bg-black">
+						<div class="text-green-300">Processing translation...</div>
+					</div>
+				{:else if awaitedAnswer}
+					<div class="border border-green-400 rounded p-4 bg-black">
+						<div class="text-green-400 mb-2">TRANSLATION RESULT:</div>
+						<div class="text-green-300">{awaitedAnswer}</div>
+					</div>
+				{/if}
+
+				<!-- Navigation -->
+				<TerminalNavigation currentPage="translation" />
+			</div>
+			
+			<!-- Status Bar -->
+			<div class="px-4 py-1 text-xs text-green-300 flex justify-between border-t border-green-400">
+				<span>TALMUD TRANSLATOR</span>
+				<span>{isMaintenanceMode ? 'MAINTENANCE' : 'READY'}</span>
+				<span>{new Date().toLocaleTimeString()}</span>
+			</div>
 		</div>
 	</div>
-
-	<form method="POST" class="py-4">
-		<p>Masechet:</p>
-		<div class="flex">
-			<input
-				id="ref"
-				list="ref-choice"
-				name="ref"
-				type="text"
-				placeholder="Brachot"
-				bind:value={masechet}
-				class="inline w-[150px] ml-4 p-2 rounded-l-md border-gray-300 border-2 border-r-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-			/>
-
-			<datalist id="ref-choice">
-				<option value="Brachot" /><option value="Shabbat" /><option value="Eruvin" /><option
-					value="Pesachim"
-				/><option value="Rosh_Hashanah" /><option value="Yoma" /><option value="Sukkah" /><option
-					value="Beitzah"
-				/><option value="Taanit" /><option value="Megillah" /><option value="Moed_Katan" /><option
-					value="Chagigah"
-				/><option value="Yevamot" /><option value="Ketubot" /><option value="Nedarim" /><option
-					value="Nazie"
-				/><option value="Sotah" /><option value="Gittin" /><option value="Kiddushin" /><option
-					value="Bava_Kamma"
-				/><option value="Bava_Metzia" /><option value="Bava_Batra" /><option
-					value="Sanhedrin"
-				/><option value="Makkot" /><option value="Shevuot" /><option value="Avodah_Zarah" /><option
-					value="Horayot"
-				/><option value="Zevachim" /><option value="Menachot" /><option value="Chullin" /><option
-					value="Bekhorot"
-				/><option value="Arakhin" /><option value="Temurah" /><option value="Keritot" /><option
-					value="Meilah"
-				/><option value="Tamid" /><option value="Niddah" /></datalist
-			>
-			<input
-				id="page"
-				name="page"
-				type="number"
-				placeholder="3"
-				bind:value={page}
-				class="inline w-[70px] p-2 border-gray-300 border-2 border-x-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-			/>
-			<input
-				id="side"
-				name="side"
-				type="text"
-				placeholder="a"
-				bind:value={side}
-				class="inline w-[70px] p-2 rounded-r-md border-gray-300 border-2 border-l-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-			/>
-
-			<button
-				class="inline ml-4 items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-				>Get Text</button
-			>
-		</div>
-	</form>
-
-	<div class="py-4">
-		<p>Choose a Section:</p>
-		<input
-			type="number"
-			class="inline-block w-[300px] ml-4 p-2 rounded-md border-gray-300 border-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-			max={form ? form.text.length : 1}
-			bind:value={selected}
-		/>
-	</div>
-
-	<WordSelect sentences={hebrew} bind:word={chosenWord} bind:selected />
-
-	<button
-		on:click={() => {
-			getTranslation();
-		}}
-		class="inline mx-12 mb-4 items-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-	>
-		Translate</button
-	>
-
-	{#if loading}
-		<div class="w-fit bg-gray-200 border-black border-2 rounded mx-12 mt-12 p-4">
-			<p>Loading...</p>
-		</div>
-	{:else if awaitedAnswer}
-		<div class="w-fit bg-gray-200 border-black border-2 rounded mx-12 mt-12 p-4">
-			<p>{awaitedAnswer}</p>
-		</div>
-	{/if}
-
-	<!-- <br />
-<div class="w-fit bg-gray-200 border-black border-2 rounded mx-12 mt-12 p-4">
-	<p>Is there Rashi?</p>
-	{#if awaitedAnswer2}
-		{#if loading}
-			<p>Loading...</p>
-		{:else if awaitedAnswer2.he}
-			<p>{awaitedAnswer2.he}</p>
-		{:else}
-			<p>No</p>
-		{/if}
-	{:else}
-		<p>No</p>
-	{/if}
-</div> -->
 </div>
+
+<style>
+	/* Terminal glow effect */
+	:global(.text-green-400) {
+		text-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+	}
+	
+	:global(.text-green-300) {
+		text-shadow: 0 0 5px rgba(134, 239, 172, 0.5);
+	}
+	
+	:global(.text-yellow-400) {
+		text-shadow: 0 0 5px rgba(250, 204, 21, 0.5);
+	}
+	
+	:global(.text-yellow-300) {
+		text-shadow: 0 0 5px rgba(253, 224, 71, 0.5);
+	}
+</style>

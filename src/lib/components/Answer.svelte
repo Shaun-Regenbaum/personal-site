@@ -6,20 +6,34 @@
 	$: console.log(answer);
 </script>
 
-<div class="overflow-hidden rounded-lg bg-white shadow">
-	<div class="px-4 py-5 sm:p-6 space-y-3">
-		<p><span class="bg-slate-200 p-1 shadow rounded-lg">Q:</span> {question}</p>
-		{#if answer}
-			{#await answer}
-				<p>A: Working on it...</p>
-			{:then}
-				<p>
-					<span class="bg-slate-200 p-1 shadow rounded-lg">A:</span>
-					{awaitedAnswer}
-				</p>
-			{/await}
-		{:else}
-			<p><span class="bg-slate-200 p-1 shadow rounded-lg">A:</span> ...</p>
-		{/if}
+{#if question}
+	<div class="border border-green-400 rounded p-4 bg-black">
+		<div class="space-y-3 font-mono">
+			<div class="text-green-400">
+				<span class="text-green-300">> query:</span> 
+				<span class="text-green-400">{question}</span>
+			</div>
+			
+			{#if answer}
+				{#await answer}
+					<div class="text-green-300">
+						<span class="text-green-300">> response:</span> 
+						<span class="text-yellow-400">Processing query...</span>
+					</div>
+				{:then}
+					<div class="text-green-300">
+						<span class="text-green-300">> response:</span>
+					</div>
+					<div class="ml-4 text-green-400 bg-gray-900 bg-opacity-50 p-3 rounded border border-green-600">
+						{awaitedAnswer}
+					</div>
+				{/await}
+			{:else}
+				<div class="text-green-300">
+					<span class="text-green-300">> response:</span> 
+					<span class="text-gray-500">Awaiting query...</span>
+				</div>
+			{/if}
+		</div>
 	</div>
-</div>
+{/if}
